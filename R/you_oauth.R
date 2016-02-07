@@ -63,9 +63,7 @@ youOauth <- function(client.id, client.secret, scope = NULL) {
   # prompt
   invisible(readline(message))
   
-  youtube <- oauth_endpoint(
-    authorize = "https://accounts.google.com/o/oauth2/auth",
-    access = "https://accounts.google.com/o/oauth2/auth")	
+  youtube <- endpoint <- httr::oauth_endpoints("google")	
   
   # build app
   you.app <- oauth_app("youtube", client.id, client.secret)
