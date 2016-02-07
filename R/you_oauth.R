@@ -9,6 +9,8 @@
 #' @details 
 #' To get your client.id and client.secret please follow the instructions 
 #' \href{https://developers.google.com/youtube/registering_an_application}{here}
+#'  , you may also want to watch the 
+#'  \href{https://www.youtube.com/watch?v=Im69kzhpR3I}{video}
 #' Also set the redirect Authorized redirect URIs to your localhost.
 #' 
 #' Scopes:
@@ -34,8 +36,14 @@
 #' 
 #' @examples 
 #' \dontrun{
-#' oauth <- youOauth(client.id = "something.apps.googleusercontent.com",
+#' token <- youOauth(client.id = "something.apps.googleusercontent.com",
 #'                   client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX")
+#'                   
+#' # save for future usage
+#' save(token, file = "token.RData")
+#' 
+#' # load
+#' token <- get(load("token.RData"))
 #' }
 #' 
 #' @author John Coene <jcoenep@@hotmail.com>
