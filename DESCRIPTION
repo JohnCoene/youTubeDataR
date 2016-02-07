@@ -1,0 +1,15 @@
+Package: youTubeDataR
+Type: Package
+Title: Integrates R and the YouTube Data API
+Version: 0.1
+Date: 2015-12-14
+Author: John Coene
+Maintainer: John Coene <jcoenep@hotmail.com>
+Description: Integrates R and the YouTube Data API to allow fetching data from Youtube.
+License: GPL (>=3) + file LICENSE
+LazyData: TRUE
+URL: https://github.com/SocialFunction/youTubeDataR
+BugReports: https://github.com/SocialFunction/youTubeDataR/issues
+Depends: 
+    httr
+RoxygenNote: 5.0.1
