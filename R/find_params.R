@@ -2,6 +2,7 @@
 #' 
 #' @export
 findParams <- function(param) {
+  
   if(param == "order") {
     
     valid <- c("date", "rating", "relevance", "title", "videoCount",
@@ -37,6 +38,10 @@ findParams <- function(param) {
   } else if (param == "event.type") {
     
     valid <- c("completed", "live", "upcoming")
+    
+  } else if (is.null(param)) {
+    
+    valid <- NULL
     
   }
   
