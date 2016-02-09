@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/SocialFunction/youTubeDataR.svg?branch=master)](https://travis-ci.org/SocialFunction/youTubeDataR)
-
 [![codecov.io](https://codecov.io/github/SocialFunction/youTubeDataR/coverage.svg?branch=master)](https://codecov.io/github/SocialFunction/youTubeDataR?branch=master)
 
 # youTubeDataR
