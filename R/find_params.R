@@ -11,13 +11,9 @@ findParams <- function(param) {
     
     stop("Please specify a parameter")
     
-  } else if (param == "video.dimensions") {
+  } else if (param == "video.dimension") {
     
     valid <- c("2d", "3d", "any")
-    
-  } else if (param == "type"){
-    
-    valid <- c("channel", "playlist", "video")
     
   } else if (param == "video.caption") {
     
@@ -42,6 +38,26 @@ findParams <- function(param) {
   } else if (is.null(param)) {
     
     valid <- NULL
+    
+  } else if (param == "channel.type") {
+    
+    valid <- c("any", "show")
+    
+  } else if (param == "video.embeddable" || param == "video.syndicated") {
+    
+    valid <- c("any", "true")
+    
+  } else if (param == "video.license") {
+    
+    valid <- c("any", "creative", "youtube")
+    
+  } else if (param == "video.type") {
+    
+    valid <- c("any", "episode", "movie")
+    
+  } else {
+    
+    stop("wrong param. See @details")
     
   }
   
