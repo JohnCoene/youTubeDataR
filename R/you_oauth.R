@@ -49,21 +49,9 @@
 #' @author John Coene <jcoenep@@hotmail.com>
 #' 
 #' @export
-youOauth <- function(client.id, client.secret, scope = NULL) {
+youOAuth <- function(client.id, client.secret, scope = NULL) {
   
-  # get ur
-  full.url <- oauth_callback()
-  full.url <- gsub("(.*localhost:[0-9]{1,5}/).*", x=full.url,
-                   replacement="\\1")
-  
-  message <- paste("Copy and paste into Credentials in Google Developpers",
-                   "Console:", 
-                   full.url, "\nPress any key to continue...")
-  
-  # prompt
-  invisible(readline(message))
-  
-  youtube <- endpoint <- httr::oauth_endpoints("google")	
+  youtube <- httr::oauth_endpoints("google")	
   
   # build app
   you.app <- oauth_app("youtube", client.id, client.secret)
@@ -88,8 +76,7 @@ youOauth <- function(client.id, client.secret, scope = NULL) {
   
   # OAuth
   youtube.token <- oauth2.0_token(youtube, you.app,
-                                  scope = scope, 
-                                  type = "application/x-www-form-urlencoded")
+                                  scope = scope)
   
   return(youtube.token)
 }
