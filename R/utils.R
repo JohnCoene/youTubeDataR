@@ -9,45 +9,60 @@ checkToken <- function(token) {
   }
 }
 
-
-checkQuery <- function(q) {
-  if(missing(q)) {
-    stop("query MUST be provided", call. = FALSE)
-  } else if (is.null(q)) {
-    stop("query is NULL", call. = FALSE)
-  }
-}
-
 buildParam <- function(param, values) {
   
-  # fetch valid values
-  valid <- findParams(param = param)
+  test.param <- tryCatch(findParams(param), error = function(e){})
   
-  if(!length(values[values %in% valid]) && !is.null(values)) {
+  # test
+  if(!is.null(values) && !is.null(test.param)) {
     
-    vals <- paste0(valid, collapse = ", ")
     
-    stop(paste0("invalid parameter, valid values are: ", vals),
-         call. = FALSE)
+    # fetch valid values for parameter
+    valid <- findParams(param = param)
     
-  } else if (length(values[values %in% valid]) && !is.null(values)) {
+    # if invalid stop
+    if(!length(values[values %in% valid]) && !is.null(values)) {
+      
+      vals <- paste0(valid, collapse = ", ")
+      
+      stop(paste0("invalid parameter, valid values are: ", vals),
+           call. = FALSE)
+      
+    } 
     
-    # index of first letter after ".
+  }
+  
+  # build
+  if (!is.null(values)) {
+    
+    # index of first letter after "."
     index <- gregexpr("\\.", param)[[1]][[1]] + 1
     
-    # capitalise
-    substr(param , start = index, stop = index) <- toupper(substring(param, 
-                                                                     index, 
-                                                                     index))
-    
-    # remove dot
-    param <- gsub("\\.", "", param)
+    # while "." present in string
+    while(index != 0) {
+      # capitalise
+      substr(param , start = index, stop = index) <- toupper(substring(param, 
+                                                                       index, 
+                                                                       index))
+      
+      # replace with space because I can't subtr a f*cking "."
+      substr(param, index-1, index-1) <- " "
+      
+      # remove space
+      param <- gsub("[[:space:]]", "", param)
+      
+      # index of first letter after "."
+      index <- gregexpr("\\.", param)[[1]][[1]] + 1
+    }
     
     # concatenate string
     param <- paste0("&", param, "=", values)
     
-  } else if (is.null(param)) {
+    # else remain NULL
+  } else if (is.null(values)) {
+    
     param <- NULL
+    
   }
   
   return(param)
@@ -86,4 +101,13 @@ buildTime <- function(t) {
   
   return(t)
   
+}
+
+# named list
+namedList <- function(...) {
+  L <- list(...)
+  snm <- sapply(substitute(list(...)),deparse)[-1]
+  if (is.null(nm <- names(L))) nm <- snm
+  if (any(nonames <- nm=="")) nm[nonames] <- snm[nonames]
+  setNames(L,nm)
 }
