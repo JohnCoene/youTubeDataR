@@ -38,15 +38,9 @@
 #' \dontrun{
 #' token <- youOauth(client.id = "something.apps.googleusercontent.com",
 #'                   client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX")
-#'                   
-#' # save for future usage
-#' save(token, file = "token.RData")
-#' 
-#' # load
-#' token <- get(load("token.RData"))
 #' }
 #' 
-#' @author John Coene <jcoenep@@hotmail.com>
+#' @author John Coene \email{jcoenep@hotmail.com}
 #' 
 #' @export
 youOAuth <- function(client.id, client.secret, scope = NULL) {
@@ -54,7 +48,7 @@ youOAuth <- function(client.id, client.secret, scope = NULL) {
   youtube <- httr::oauth_endpoints("google")	
   
   # build app
-  you.app <- oauth_app("youtube", client.id, client.secret)
+  you.app <- httr::oauth_app("youtube", client.id, client.secret)
   
   # set scope
   if(is.null(scope)){
@@ -75,8 +69,9 @@ youOAuth <- function(client.id, client.secret, scope = NULL) {
   }
   
   # OAuth
-  youtube.token <- oauth2.0_token(youtube, you.app,
-                                  scope = scope)
+  youtube.token <- httr::oauth2.0_token(youtube, you.app,
+                                        scope = scope,
+                                        cache = FALSE)
   
   return(youtube.token)
 }

@@ -49,16 +49,10 @@ See all scopes from documentation
 \dontrun{
 token <- youOauth(client.id = "something.apps.googleusercontent.com",
                   client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX")
-                  
-# save for future usage
-save(token, file = "token.RData")
-
-# load
-token <- get(load("token.RData"))
 }
 
 }
 \author{
-John Coene <jcoenep@hotmail.com>
+John Coene \email{jcoenep@hotmail.com}
 }
 
