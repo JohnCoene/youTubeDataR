@@ -10,6 +10,8 @@ License: GPL (>=3) + file LICENSE
 LazyData: TRUE
 URL: https://github.com/SocialFunction/youTubeDataR
 BugReports: https://github.com/SocialFunction/youTubeDataR/issues
-Depends: 
-    httr
+Imports: 
+    httr,
+    jsonlite,
+    plyr
 RoxygenNote: 5.0.1
