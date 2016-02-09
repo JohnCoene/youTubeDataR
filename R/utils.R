@@ -111,3 +111,79 @@ namedList <- function(...) {
   if (any(nonames <- nm=="")) nm[nonames] <- snm[nonames]
   setNames(L,nm)
 }
+
+# buildTerms
+buildTerms <- function(q) {
+  
+  # replace space with "+"
+  q <- gsub("[[:space:]]", "+", q)
+  
+  q <- paste0("&q=",q)
+  
+  return(q)
+}
+
+# buildLocation
+buildLocation <- function(location) {
+  
+  location <- paste0(location[1], ",",location[2])
+  
+  return(location)
+  
+}
+
+# paginate
+paginate <- function(response, n = 50, verbose = FALSE) {
+  
+  # parse
+  json <- jsonlite::fromJSON(rawToChar(response$content),
+                             simplifyDataFrame = F)
+  
+  dat <- do.call(plyr::"rbind.fill", lapply(json$items, as.data.frame))
+  
+  # number of results 
+  res <- json$pageInfo$resultsPerPage
+  
+  i <- 1
+  
+  while(res < n && length(json$nextPageToken)) {
+    
+    # rebuild url
+    uri <- paste0(response$url, "&pageToken=", json$nextPageToken)
+    
+    # fetch
+    response <- httr::GET(uri, config = (token = token))
+    
+    # parse
+    json <- jsonlite::fromJSON(rawToChar(response$content),
+                               simplifyDataFrame = F)
+    
+    next.dat <- do.call(plyr::"rbind.fill", lapply(json$items, as.data.frame))
+    
+    # bind
+    dat <- plyr::rbind.fill(dat, next.dat)
+    
+    # number of results 
+    res <- res + json$pageInfo$resultsPerPage
+    
+    i <- i + 1
+    
+    # vebose
+    if(verbose == TRUE) {
+      cat(paste0(res, " results\n"), fill = TRUE, 
+          labels = paste0("Query #", i))
+    }
+    
+    # don't hammer that server
+    Sys.sleep(0.5)
+    
+  } 
+  
+  # remove "snippet." from names
+  names(dat) <- gsub("snippet.", "", names(dat))
+  
+  return(dat)
+  
+}
+
+
