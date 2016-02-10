@@ -208,16 +208,16 @@ searchVideos <- function(token, query, n = 50, order = "relevance",
   
   # parameters to list
   arguments <- namedList(order, video.dimension, video.caption, video.category.id, 
-                    video.duration, video.embeddable, video.syndicated, 
-                    video.type, video.definition, video.license, location, 
-                    location.radius, region.code, safe.search, event.type, 
-                    channel.id, relevance.language, topic.id, max.results)
+                         video.duration, video.embeddable, video.syndicated, 
+                         video.type, video.definition, video.license, location, 
+                         location.radius, region.code, safe.search, event.type, 
+                         channel.id, relevance.language, topic.id, max.results)
   
   # buildParameters
   x <- list()
   for (i in 1:length(arguments)) {
-   y <- buildParam(param = names(arguments[i]), values = arguments[[i]])
-   x[[i]] <- ifelse(!is.null(y), y, "")
+    y <- buildParam(param = names(arguments[i]), values = arguments[[i]])
+    x[[i]] <- ifelse(!is.null(y), y, "")
   }
   
   # collapse
