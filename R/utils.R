@@ -185,3 +185,23 @@ paginate <- function(response, n = 50, verbose = FALSE) {
   return(dat)
   
 }
+
+
+testPart <- function(FUN, values) {
+  
+  test.param <- findParts(FUN)
+  
+  
+  # fetch valid values for parameter
+  valid <- findParts(FUN)
+  
+  # if invalid stop
+  if(!length(values[values %in% valid]) && !is.null(values)) {
+    
+    vals <- paste0(valid, collapse = ", ")
+    
+    stop(paste0("invalid parameter, valid values are: ", vals),
+         call. = FALSE)
+  }
+
+}
