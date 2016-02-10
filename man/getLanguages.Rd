@@ -19,6 +19,17 @@ The default value is \code{FALSE}.}
 Returns a list of application languages that the YouTube 
 website supports.
 }
+\examples{
+\dontrun{
+# Authenticate
+token <- youOAuth(client.id = "something.apps.googleusercontent.com",
+                  client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX")
+
+# fetch languages
+lang <- getLanguages(token)
+}
+
+}
 \author{
 John Coene \email{jcoenep@hotmail.com}
 }
