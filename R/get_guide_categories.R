@@ -1,4 +1,4 @@
-#' getCategories
+#' getGuideCategories
 #' 
 #' @description Returns a list of categories that can be associated with 
 #' YouTube channels.
@@ -30,7 +30,7 @@
 #' @export
 #' 
 #' @author John Coene \email{jcoenep@@hotmail.com}
-getCategories <- function (token, id = NULL, region.code = NULL, hl = NULL) {
+getGuideCategories <- function (token, id = NULL, region.code = NULL, hl = NULL) {
   
   # check token
   checkToken(token)
