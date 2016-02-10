@@ -20,6 +20,8 @@ Valid \code{FUN}:
 \item \code{\link{getCaptions}}
 \item \code{\link{getChannels}}
 \item \code{\link{getChannelSections}}
+\item \code{\link{getComments}}
+\item \code{\link{getCommentThreads}}
 }
 Alternatively see \code{scope} in \code{\link{youOAuth}}.
 }

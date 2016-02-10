@@ -35,6 +35,8 @@ Valid parameters:
 \item \code{event.type}
 \item \code{channel.type}
 \item \code{type}
+\item \code{text.format}
+\item \code{moderation.status}
 }
 }
 \examples{
