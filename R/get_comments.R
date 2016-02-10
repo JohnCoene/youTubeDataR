@@ -89,7 +89,7 @@ getComments <- function(token, part = "snippet", n = 50, max.results = 50,
   # collapse
   suffix <- paste(x, collapse = "")
   
-  testPart("getActivities", part)
+  testPart("getComments", part)
   
   # build uri
   uri <- paste0("https://www.googleapis.com/youtube/v3/comments?part=", part,
@@ -115,7 +115,7 @@ getComments <- function(token, part = "snippet", n = 50, max.results = 50,
     
   }
   
-  if(verbose == TRUE){
+  if(verbose == TRUE && nrow(dat)){
     cat(paste0(n, " results queried, API returned ", nrow(dat),
                " results."))
   }
