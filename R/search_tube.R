@@ -155,7 +155,7 @@
 #' 
 #' @examples 
 #' \dontrun{
-#' # Authneticate
+#' # Authenticate
 #' token <- youOauth(client.id = "something.apps.googleusercontent.com",
 #'                   client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX")
 #' 
@@ -185,7 +185,8 @@
 #' 
 #' @author John Coene \email{jcoenep@hotmail.com}
 #' 
-#' @seealso \code{\link{findParams}}, \code{link{youOAuth}}
+#' @seealso \code{\link{findParams}}, \code{link{youOAuth}}, 
+#' \code{\link{findParts}}
 #' 
 #' @export
 searchTube <- function(token, query, n = 50, type = "any", order = "relevance", 
@@ -281,7 +282,10 @@ searchTube <- function(token, query, n = 50, type = "any", order = "relevance",
   suffix <- paste(x, collapse = "")
   
   # time
-  published.before <- paste0("&publishedBefore=", buildTime(published.before))
+  if(length(published.before)){
+    published.before <- paste0("&publishedBefore=", buildTime(published.before))
+  }
+  
   if (length(published.after)) {
     published.after <- paste0("&publishedAfter=", buildTime(published.after))
   }

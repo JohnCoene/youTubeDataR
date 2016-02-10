@@ -172,7 +172,7 @@ are preceded by \code{video.} and \code{event.type}.
 }
 \examples{
 \dontrun{
-# Authneticate
+# Authenticate
 token <- youOauth(client.id = "something.apps.googleusercontent.com",
                   client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX")
 
@@ -205,6 +205,7 @@ clean.cats <- searchVideos(token, query = "clean cats", safe.search = safety,
 John Coene \email{jcoenep@hotmail.com}
 }
 \seealso{
-\code{\link{findParams}}, \code{link{youOAuth}}
+\code{\link{findParams}}, \code{link{youOAuth}}, 
+\code{\link{findParts}}
 }
 
