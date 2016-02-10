@@ -16,8 +16,10 @@ Helper function to retrieve valid values for part
 \details{
 Valid \code{FUN}: 
 \itemize{
-\item \code{getActivities}
-\item \code{getCaptions}
+\item \code{\link{getActivities}}
+\item \code{\link{getCaptions}}
+\item \code{\link{getChannels}}
+\item \code{\link{getChannelSections}}
 }
 Alternatively see \code{scope} in \code{\link{youOAuth}}.
 }
