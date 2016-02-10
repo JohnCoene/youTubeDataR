@@ -28,9 +28,8 @@ The default value is \code{FALSE}.}
 
 \item{hl}{The hl parameter instructs the API to retrieve localized resource metadata 
 for a specific application language that the YouTube website supports. The 
-parameter value must be a language code included in the list returned by the 
-\href{https://developers.google.com/youtube/v3/docs/i18nLanguages/list}{i18nLanguages.list} 
-method.}
+parameter value must be a language code included in the list returned by 
+\code{\link{getLanguages}}}
 
 \item{on.behalf.of.content.owner}{Indicates that the request's 
 authorization credentials identify a YouTube CMS user who is acting on 
