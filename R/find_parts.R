@@ -11,6 +11,8 @@
 #' \item \code{\link{getCaptions}}
 #' \item \code{\link{getChannels}}
 #' \item \code{\link{getChannelSections}}
+#' \item \code{\link{getComments}}
+#' \item \code{\link{getCommentThreads}}
 #' }
 #' Alternatively see \code{scope} in \code{\link{youOAuth}}.
 #' 
@@ -58,6 +60,14 @@ findParts <- function(FUN) {
   } else if (FUN == "getChannelSections") {
     
     valid <- c("contentDetails", "id", "localizations", "snippet")
+    
+  } else if (FUN == "getComments") {
+    
+    valid <- c("id", "snippet")
+    
+  } else if (FUN == "getCommentThreads") {
+    
+    valid <- c("id", "replies", "snippet")
     
   }
   
