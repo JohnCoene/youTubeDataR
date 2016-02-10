@@ -26,6 +26,7 @@
 #' \item \code{safe.search}
 #' \item \code{event.type}
 #' \item \code{channel.type}
+#' \item \code{type}
 #' }
 #' 
 #' @examples 
@@ -101,6 +102,10 @@ findParams <- function(param) {
   } else if (param == "video.type") {
     
     valid <- c("any", "episode", "movie")
+    
+  } else if (param == "type"){
+    
+    valid <- c("any", "channel", "playlist", "video")
     
   } else {
     
