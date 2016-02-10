@@ -185,5 +185,3 @@ paginate <- function(response, n = 50, verbose = FALSE) {
   return(dat)
   
 }
-
-
