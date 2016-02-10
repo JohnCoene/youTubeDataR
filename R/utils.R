@@ -137,7 +137,7 @@ paginate <- function(response, n = 50, verbose = FALSE) {
   
   # parse
   json <- jsonlite::fromJSON(rawToChar(response$content),
-                             simplifyDataFrame = F)
+                             simplifyDataFrame = FALSE)
   
   dat <- do.call(plyr::"rbind.fill", lapply(json$items, as.data.frame))
   
