@@ -9,7 +9,8 @@ Integrates R and the YouTube Data API.
 
 * `youOAuth`
 * `findParams`
-* `searchVideos`
+* `searchTube`
+* `getActivities`
 
 ## Install ##
 
