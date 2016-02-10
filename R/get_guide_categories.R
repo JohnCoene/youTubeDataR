@@ -30,7 +30,8 @@
 #' @export
 #' 
 #' @author John Coene \email{jcoenep@@hotmail.com}
-getGuideCategories <- function (token, id = NULL, region.code = NULL, hl = NULL) {
+getGuideCategories <- function (token, id = NULL, region.code = NULL, hl = NULL) 
+  {
   
   # check token
   checkToken(token)
@@ -49,7 +50,6 @@ getGuideCategories <- function (token, id = NULL, region.code = NULL, hl = NULL)
   }
   
   arguments <- namedList(id, region.code, hl)
-  
   
   # buildParameters
   x <- list()
