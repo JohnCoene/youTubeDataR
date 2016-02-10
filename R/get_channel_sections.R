@@ -60,7 +60,7 @@ getChannelSections <- function(token, channel.id, part = "snippet",
     
     c <- mine + home + length(channel.id)
     
-    if(length(c) > 1) {
+    if(c > 1) {
       
       stop("can only specify one of home, mine or channel.id")
       

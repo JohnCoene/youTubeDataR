@@ -79,13 +79,14 @@ getActivities <- function(token, channel.id = NULL, mine = FALSE, home = FALSE,
   # check required arguments
   # check token
   checkToken(token)
+  
   if(is.null(channel.id) && mine == FALSE && home == FALSE) {
     stop("must provide channel.id or mine or home")
   } else {
     
    c <- mine + home + length(channel.id)
    
-   if(length(c) > 1) {
+   if(c > 1) {
      
      stop("can only specify one of home, mine or channel.id")
      

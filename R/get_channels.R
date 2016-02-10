@@ -111,7 +111,7 @@ getChannels <- function(token, n = 50, part = "snippet", category.id = NULL,
     c <- length(category.id) + length(for.username) + length(id) + 
       managed.by.me + mine
     
-    if(length(c) > 1) {
+    if(c > 1) {
       
       stop(paste0("can only specify one of category.id, for.username, id",
                   ", managed.by.me or mine"))
