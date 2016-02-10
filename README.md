@@ -5,22 +5,22 @@
 
 Integrates R and the YouTube Data API.
 
-## Functions ##
+### Functions ###
 
-### OAuth ###
+#### OAuth ####
 
 * `youOAuth`
 
-### Find-family ###
+#### Find-family ####
 
 * `findParams`
 * `findParts`
 
-### Search ###
+#### Search ####
 
 * `searchTube`
 
-### GET-family ###
+#### GET-family ####
 
 * `getActivities`
 * `getcaptions`
@@ -31,10 +31,10 @@ Integrates R and the YouTube Data API.
 * `getCategories`
 * `getLanguages`
 
-## Install ##
+### Install ###
 
 `devtools::install_github("SocialFunction/youTubeDataR")`
 
-## Contributors ##
+### Contributors ###
 
 John Coene <jcoenep@hotmail.com>
