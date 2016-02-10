@@ -10,7 +10,7 @@ findParams(param)
 \item{param}{Parameter to retrieve}
 }
 \description{
-helper function to retrieve valid values for parameters 
+Helper function to retrieve valid values for parameters 
 (mostly used internally)
 }
 \details{
@@ -39,7 +39,7 @@ Valid parameters:
 }
 \examples{
 \dontrun{
-# Authneticate
+# Authenticate
 token <- youOauth(client.id = "something.apps.googleusercontent.com",
                   client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX")
 
