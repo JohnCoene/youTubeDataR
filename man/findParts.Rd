@@ -22,6 +22,7 @@ Valid \code{FUN}:
 \item \code{\link{getChannelSections}}
 \item \code{\link{getComments}}
 \item \code{\link{getCommentThreads}}
+\item \code{\link{getPlaylistItems}}
 }
 Alternatively see \code{scope} in \code{\link{youOAuth}}.
 }
