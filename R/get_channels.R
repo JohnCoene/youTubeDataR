@@ -38,9 +38,8 @@
 #' @param hl 
 #' The hl parameter instructs the API to retrieve localized resource metadata 
 #' for a specific application language that the YouTube website supports. The 
-#' parameter value must be a language code included in the list returned by the 
-#' \href{https://developers.google.com/youtube/v3/docs/i18nLanguages/list}{i18nLanguages.list} 
-#' method.
+#' parameter value must be a language code included in the list returned by 
+#' \code{\link{getLanguages}}.
 #' @param max.results 
 #' Specifies the maximum number of results that should be returned 
 #' by each API call. Acceptable values are \code{0} to \code{50}, inclusive. 
@@ -194,7 +193,7 @@ getChannels <- function(token, n = 50, part = "snippet", category.id = NULL,
     
   }
   
-  if(verbose == TRUE){
+  if(verbose == TRUE && nrow(dat)){
     cat(paste0(n, " results queried, API returned ", nrow(dat),
                " results."))
   }

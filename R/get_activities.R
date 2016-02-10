@@ -171,7 +171,7 @@ getActivities <- function(token, channel.id = NULL, mine = FALSE, home = FALSE,
     
   }
   
-  if(verbose == TRUE){
+  if(verbose == TRUE && nrow(dat)){
     cat(paste0(n, " results queried, API returned ", nrow(dat),
                " results."))
   }
