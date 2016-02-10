@@ -103,7 +103,7 @@ buildTime <- function(t) {
   
 }
 
-# named list
+# named list #stackoverflow FTW
 namedList <- function(...) {
   L <- list(...)
   snm <- sapply(substitute(list(...)),deparse)[-1]
