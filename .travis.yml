@@ -1,6 +1,9 @@
 language: R
 r_github_packages:
   - jimhester/covr
-  - hadley/httr
+r_packages:
+  - httr
+  - jsonlite
+  - plyr
 after_success:
   - Rscript -e 'library(covr);codecov()'
