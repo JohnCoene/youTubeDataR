@@ -27,6 +27,8 @@
 #' \item \code{event.type}
 #' \item \code{channel.type}
 #' \item \code{type}
+#' \item \code{text.format}
+#' \item \code{moderation.status}
 #' }
 #' 
 #' @examples 
@@ -106,6 +108,14 @@ findParams <- function(param) {
   } else if (param == "type"){
     
     valid <- c("any", "channel", "playlist", "video")
+    
+  } else if (param == "text.format") {
+    
+    valid <- c("html", "plainText")
+    
+  } else if (param == "moderation.status") {
+    
+    valid < c("heldForReview", "likelySpam", "published")
     
   } else {
     
