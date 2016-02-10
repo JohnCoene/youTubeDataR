@@ -24,6 +24,8 @@ Integrates R and the YouTube Data API.
 
 * `getActivities`
 * `getcaptions`
+* `getChannels`
+* `getChannelSections`
 
 ## Install ##
 
