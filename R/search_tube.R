@@ -282,14 +282,16 @@ searchTube <- function(token, query, n = 50, type = "any", order = "relevance",
   
   # time
   published.before <- paste0("&publishedBefore=", buildTime(published.before))
-  published.after <- paste0("&publishedAfter=", buildTime(published.after))
+  if (length(published.after)) {
+    published.after <- paste0("&publishedAfter=", buildTime(published.after))
+  }
   
   # query
   query <- buildTerms(query)
   
   # build uri
   uri <- paste0("https://www.googleapis.com/youtube/v3/search?part=snippet",
-                "&type=video", type, query, suffix)
+                type, query, suffix, published.after, published.before)
   
   # GET
   response <- httr::GET(uri, config = (token = token))
