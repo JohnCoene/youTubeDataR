@@ -1,6 +1,6 @@
 #' findParams
 #' 
-#' @description helper function to retrieve valid values for parameters 
+#' @description Helper function to retrieve valid values for parameters 
 #' (mostly used internally)
 #' 
 #' @param param Parameter to retrieve
@@ -27,11 +27,12 @@
 #' \item \code{event.type}
 #' \item \code{channel.type}
 #' \item \code{type}
+#' \item \code{part}
 #' }
 #' 
 #' @examples 
 #' \dontrun{
-#' # Authneticate
+#' # Authenticate
 #' token <- youOauth(client.id = "something.apps.googleusercontent.com",
 #'                   client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX")
 #' 
