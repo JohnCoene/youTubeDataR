@@ -1,16 +1,25 @@
 #' getActivities
 #' 
+#' @description Returns a list of caption tracks that are associated with a 
+#' specific channel.
+#' 
 #' @param token 
 #' Your token as returned by \code{\link{youOAuth}}.
+#' @param channel.id 
+#' Indicates that the API response should only contain resources created by 
+#' the channel. The default value is \code{NULL}. This parameters is 
+#' required.
+#' @param part 
+#' The part parameter specifies a comma-separated list of one or more activity 
+#' resource properties that the API response will include. The default value 
+#' is \code{snippet}, can take any of \code{contentDetails}, \code{id} or 
+#' \code{snippet}. See \code{link{findParts}}.
 #' @param n 
 #' Number of results to fecth. The default value is \code{50}.
 #' @param max.results 
 #' Specifies the maximum number of results that should be returned 
 #' by each API call. Acceptable values are \code{0} to \code{50}, inclusive. 
 #' The default value is \code{50}.
-#' @param channel.id 
-#' Indicates that the API response should only contain resources created by 
-#' the channel. 
 #' @param mine 
 #' Set this parameter's value to true to retrieve a feed of the authenticated 
 #' user's activities. The default value is \code{FALSE}.
@@ -39,21 +48,39 @@
 #' If \code{TRUE} prints infromational messages in the console. 
 #' The default value is \code{FALSE}.
 #' 
+#' @examples 
+#' \dontrun{
+#' # Authenticate
+#' token <- youOauth(client.id = "something.apps.googleusercontent.com",
+#'                   client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX")
+#'                   
+#' # search videos about cats
+#' search <- searchTube(token, query = "cats", type = "channel")
+#' 
+#' # pick random channel id
+#' set.seed(19880525)
+#' chan <- sample(search$id.channelId, 1)
+#' 
+#' # fetch data
+#' act <- getActivities(token, channel.id = chan)
+#' }
+#' 
+#' @seealso \code{link{youOAuth}}, \code{\link{findParts}}
+#' 
 #' @export
 #' 
 #' @author John Coene \email{jcoenep@@hotmail.com}
-getActivities <- function(token, n = 50, max.results = 50, channel.id = NULL, 
-                          mine = FALSE, home = FALSE, 
+getActivities <- function(token, channel.id = NULL, part = "snippet", n = 50, 
+                          max.results = 50, mine = FALSE, home = FALSE, 
                           published.before = Sys.time(), published.after = NULL, 
                           region.code = NULL, verbose = FALSE) {
   
-  
   # check required arguments
-  if (missing(query)) {
-    stop("query is missing")
-  }
   # check token
   checkToken(token)
+  if(missing(channel.id) || is.null(channel.id)) {
+    stop("must provide channel.id")
+  } 
   
   # check optional arguments
   # max results
@@ -69,7 +96,7 @@ getActivities <- function(token, n = 50, max.results = 50, channel.id = NULL,
   }
   
   # parameters to list
-  arguments <- namedList(region.code, max.results)
+  arguments <- namedList(region.code, max.results, channel.id)
   
   # buildParameters
   x <- list()
@@ -82,7 +109,10 @@ getActivities <- function(token, n = 50, max.results = 50, channel.id = NULL,
   suffix <- paste(x, collapse = "")
   
   # time
-  published.before <- paste0("&publishedBefore=", buildTime(published.before))
+  if(length(published.before)){
+    published.before <- paste0("&publishedBefore=", buildTime(published.before))
+  }
+  
   if (length(published.after)) {
     published.after <- paste0("&publishedAfter=", buildTime(published.after))
   }
@@ -90,18 +120,21 @@ getActivities <- function(token, n = 50, max.results = 50, channel.id = NULL,
   # mine
   if (mine == TRUE) {
     mine <- paste0("&mine=true")
+  } else {
+    mine <- NULL
   }
   
   # home
-  if(home == TRUE){
+  if(home == TRUE) {
     home <- paste0("&home=true")
+  } else {
+    home <- NULL
   }
   
-  # query
-  query <- buildTerms(query)
+  testPart("getActivities", part)
   
   # build uri
-  uri <- paste0("https://www.googleapis.com/youtube/v3/search?part=snippet",
+  uri <- paste0("https://www.googleapis.com/youtube/v3/activities?part=", part,
                 suffix, mine, home, published.before, published.after)
   
   # GET
@@ -120,7 +153,7 @@ getActivities <- function(token, n = 50, max.results = 50, channel.id = NULL,
     # else parse
   } else {
     
-    dat <- paginate(response, n, verbose)
+    dat <- do.call(plyr::"rbind.fill", lapply(json$items, as.data.frame))
     
   }
   
