@@ -4,7 +4,7 @@
 \alias{getCaptions}
 \title{getCaptions}
 \usage{
-getCaptions(token, video.id = NULL, part = "snippet", id,
+getCaptions(token, video.id = NULL, part = "snippet", id = NULL,
   on.behalf.of.content.owner = NULL)
 }
 \arguments{
@@ -16,24 +16,39 @@ caption tracks.}
 \item{part}{specifies the caption resource parts that the API response will include. 
 The default vlaue is \code{snippet}, can take any of \code{id} or 
 \code{snippet}. See \code{link{findParts}}.}
+
+\item{id}{The id parameter specifies a comma-separated list of IDs that identify the 
+caption resources that should be retrieved. Each ID must identify a caption 
+track associated with the specified video. The default value is \code{NULL}.}
+
+\item{on.behalf.of.content.owner}{The onBehalfOfContentOwner parameter indicates that the request's 
+authorization credentials identify a YouTube CMS user who is acting on 
+behalf of the content owner specified in the parameter value. This parameter 
+is intended for YouTube content partners that own and manage many different 
+YouTube channels. It allows content owners to authenticate once and get 
+access to all their video and channel data, without having to provide 
+authentication credentials for each individual channel. The actual CMS 
+account that the user authenticates with must be linked to the specified 
+YouTube content owner. This parameter can only be used in a properly 
+authorized request. Note: This parameter is intended exclusively for 
+YouTube content partners. See scope under \code{link{youOAuth}}. 
+The default value is \code{NULL}.}
 }
 \description{
 Returns a list of caption tracks that are associated with a 
 specified video.
 }
 \details{
-Required authorisation: 
+See scope in \code{\link{youOAuth}}. Required authorisation: 
 \itemize{
 \item \code{force-ssl}
 \item \code{partner-channel-audit}
 }
-
-See scope in \code{\link{youOAuth}}
 }
 \examples{
 \dontrun{
 # Authenticate
-token <- youOauth(client.id = "something.apps.googleusercontent.com",
+token <- youOAuth(client.id = "something.apps.googleusercontent.com",
                   client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX")
                   
 # search videos about cats
