@@ -59,10 +59,27 @@
 #' \href{https://developers.google.com/youtube/v3/getting-started#quota}{official documentation} 
 #' for more information.
 #' 
+#' @examples 
+#' \dontrun{
+#' # Authenticate
+#' token <- youOAuth(client.id = "something.apps.googleusercontent.com",
+#'                   client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX")
+#' 
+#' # search channel on cats
+#' search <- searchTube(token, query = "cats", type = "channel")
+#' 
+#' # sample random channel
+#' set.seed(19880525)
+#' channel <- sample(search$id.channelId, 1)
+#' 
+#' # fetch comment thread
+#' cats <- getCommentThreads(token, all.threads.related.to.channel.id = channel)
+#' }
+#' 
 #' @export
 #' 
 #' @author John Coene \email{jcoenep@@hotmail.com}
-getCommentThreads <- function(token, part = "snippet", n = 20 , 
+getCommentThreads <- function(token, part = "snippet", n = 20, 
                               channel.id = NULL, 
                               all.threads.related.to.channel.id = NULL, 
                               id = NULL, video.id = NULL, max.results = NULL, 
@@ -74,8 +91,8 @@ getCommentThreads <- function(token, part = "snippet", n = 20 ,
   checkToken(token)
   
   # check required parameters
-  if(!length(channel.id) || !length(all.threads.related.to.channel.id) || 
-     !length(id) || !length(video.id)) {
+  if(!length(channel.id) && !length(all.threads.related.to.channel.id) && 
+     !length(id) && !length(video.id)) {
     stop(paste0("Must specify one of video.id, id, ", 
                 "all.threads.related.to.channel.id or channel.id"))
   } else {
@@ -141,7 +158,7 @@ getCommentThreads <- function(token, part = "snippet", n = 20 ,
   }
    
   
-  testPart("getActivities", part)
+  testPart("getCommentThreads", part)
   
   # build uri
   uri <- paste0("https://www.googleapis.com/youtube/v3/commentThreads?part=", 
@@ -176,7 +193,7 @@ getCommentThreads <- function(token, part = "snippet", n = 20 ,
     
   }
   
-  if(verbose == TRUE){
+  if(verbose == TRUE && nrow(dat)){
     cat(paste0(n, " results queried, API returned ", nrow(dat),
                " results."))
   }

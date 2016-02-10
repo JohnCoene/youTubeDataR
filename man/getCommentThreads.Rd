@@ -70,6 +70,24 @@ The \code{part} parameter has great impact on your quota, visit the
 \href{https://developers.google.com/youtube/v3/getting-started#quota}{official documentation} 
 for more information.
 }
+\examples{
+\dontrun{
+# Authenticate
+token <- youOAuth(client.id = "something.apps.googleusercontent.com",
+                  client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX")
+
+# search channel on cats
+search <- searchTube(token, query = "cats", type = "channel")
+
+# sample random channel
+set.seed(19880525)
+channel <- sample(search$id.channelId, 1)
+
+# fetch comment thread
+cats <- getCommentThreads(token, all.threads.related.to.channel.id = channel)
+}
+
+}
 \author{
 John Coene \email{jcoenep@hotmail.com}
 }
