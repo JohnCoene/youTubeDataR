@@ -1,21 +1,21 @@
 #' findParts
 #' 
 #' @description Helper function to retrieve valid values for part 
-#' (mostly used internally)
+#' (mostly used internally).
 #' 
-#' @param FUN Function to retrieve the valid \code{part}
+#' @param FUN Function to retrieve the valid \code{part}.
 #' 
-#' @details 
-#' 
-#' Valid \code{FUN}
-#' \itemize {
+#' @details Valid \code{FUN}: 
+#' \itemize{
 #' \item \code{getActivities}
 #' \item \code{getCaptions}
 #' }
+#' Alternatively see \code{scope} in \code{\link{youOAuth}}.
 #' 
-#' @examples {
+#' @examples 
+#' \dontrun{
 #' # Authenticate
-#' token <- youOauth(client.id = "something.apps.googleusercontent.com",
+#' token <- youOAuth(client.id = "something.apps.googleusercontent.com",
 #'                   client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX")
 #'                   
 #' # search channels about cats
@@ -26,7 +26,7 @@
 #' chan <- sample(search$id.channelId, 1)
 #' 
 #' # get valid part
-#' p <- findParts(FUN = "getActivities")
+#' p <- findParts(FUN = "getActivities")[1]
 #' 
 #' # fetch data
 #' act <- getActivities(token, channel.id = chan, part = p)
