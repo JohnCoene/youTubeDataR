@@ -69,6 +69,10 @@ findParts <- function(FUN) {
     
     valid <- c("id", "replies", "snippet")
     
+  } else if (FUN == "getPlaylistItems") {
+    
+    valid <- c("contentDetails", "id", "snippet", "status")
+    
   }
   
   return(valid)
