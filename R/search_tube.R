@@ -317,7 +317,7 @@ searchTube <- function(token, query, n = 50, type = "any", order = "relevance",
     
   }
   
-  if(verbose == TRUE){
+  if(verbose == TRUE && nrow(dat)){
     cat(paste0(n, " results queried, API returned ", nrow(dat),
                " results."))
   }
