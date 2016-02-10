@@ -21,7 +21,7 @@ The default vlaue is \code{snippet}, can take any of \code{id} or
 caption resources that should be retrieved. Each ID must identify a caption 
 track associated with the specified video. The default value is \code{NULL}.}
 
-\item{on.behalf.of.content.owner}{The onBehalfOfContentOwner parameter indicates that the request's 
+\item{on.behalf.of.content.owner}{The \code{on.behalf.of.content.owner} parameter indicates that the request's 
 authorization credentials identify a YouTube CMS user who is acting on 
 behalf of the content owner specified in the parameter value. This parameter 
 is intended for YouTube content partners that own and manage many different 
