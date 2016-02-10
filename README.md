@@ -26,6 +26,10 @@ Integrates R and the YouTube Data API.
 * `getcaptions`
 * `getChannels`
 * `getChannelSections`
+* `getComments`
+* `getCommentThreads`
+* `getCategories`
+* `getLanguages`
 
 ## Install ##
 
