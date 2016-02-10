@@ -34,6 +34,7 @@ Valid parameters:
 \item \code{safe.search}
 \item \code{event.type}
 \item \code{channel.type}
+\item \code{type}
 }
 }
 \examples{
