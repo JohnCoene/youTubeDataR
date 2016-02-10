@@ -166,7 +166,9 @@ Search YouTube for videos, channels and/or playlists.
 \details{
 For more information on the parameters and the API call this 
 function refers to please see 
-\url{https://developers.google.com/youtube/v3/docs/search/list}
+\url{https://developers.google.com/youtube/v3/docs/search/list}. 
+Some parameters are only applicable to \code{type=video} namely that which 
+are preceded by \code{video.} and \code{event.type}.
 }
 \examples{
 \dontrun{

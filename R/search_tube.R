@@ -144,7 +144,9 @@
 #' 
 #' @details For more information on the parameters and the API call this 
 #' function refers to please see 
-#' \url{https://developers.google.com/youtube/v3/docs/search/list}
+#' \url{https://developers.google.com/youtube/v3/docs/search/list}. 
+#' Some parameters are only applicable to \code{type=video} namely that which 
+#' are preceded by \code{video.} and \code{event.type}.
 #' 
 #' @return Returns a collection of search results that match the query 
 #' parameters specified in the API request.
@@ -241,7 +243,7 @@ searchTube <- function(token, query, n = 50, type = "any", order = "relevance",
        length(video.embeddable) || length(video.syndicated) || 
        length(video.license)) {
       
-      warning("conflicting arguments, type set to 'video'")
+      warning("conflicting arguments, type set to 'video'. See @details.")
       
       type <- "&type=video"
       
