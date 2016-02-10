@@ -7,8 +7,7 @@
 #' Your token as returned by \code{\link{youOAuth}}.
 #' @param channel.id 
 #' Indicates that the API response should only contain resources created by 
-#' the channel. The default value is \code{NULL}. This parameters is 
-#' required.
+#' the channel. The default value is \code{FALSE}.
 #' @param part 
 #' The part parameter specifies a comma-separated list of one or more activity 
 #' resource properties that the API response will include. The default value 
@@ -48,10 +47,13 @@
 #' If \code{TRUE} prints infromational messages in the console. 
 #' The default value is \code{FALSE}.
 #' 
+#' @details MUST specify one of \code{channel.id} OR \code{mine} (TRUE) OR 
+#' \code{home}
+#' 
 #' @examples 
 #' \dontrun{
 #' # Authenticate
-#' token <- youOauth(client.id = "something.apps.googleusercontent.com",
+#' token <- youOAuth(client.id = "something.apps.googleusercontent.com",
 #'                   client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX")
 #'                   
 #' # search videos about cats
@@ -70,17 +72,44 @@
 #' @export
 #' 
 #' @author John Coene \email{jcoenep@@hotmail.com}
-getActivities <- function(token, channel.id = NULL, part = "snippet", n = 50, 
-                          max.results = 50, mine = FALSE, home = FALSE, 
+getActivities <- function(token, channel.id = FALSE, mine = FALSE, home = FALSE, 
+                          part = "snippet", n = 50, max.results = 50,  
                           published.before = Sys.time(), published.after = NULL, 
                           region.code = NULL, verbose = FALSE) {
   
   # check required arguments
   # check token
   checkToken(token)
-  if(missing(channel.id) || is.null(channel.id)) {
-    stop("must provide channel.id")
-  } 
+  if(missing(channel.id) || is.null(channel.id) && mine == FALSE && 
+     home == FALSE) {
+    stop("must provide channel.id or mine or home")
+  } else {
+    
+   c <- mine + home + channel.id
+   
+   if(length(c) > 1) {
+     
+     stop("can only specify one of home, mine or channel.id")
+     
+   } else {
+     
+     # mine
+     if (mine == TRUE) {
+       mine <- paste0("&mine=true")
+     } else {
+       mine <- NULL
+     }
+     
+     # home
+     if(home == TRUE) {
+       home <- paste0("&home=true")
+     } else {
+       home <- NULL
+     }
+     
+   }
+    
+  }
   
   # check optional arguments
   # max results
@@ -115,20 +144,6 @@ getActivities <- function(token, channel.id = NULL, part = "snippet", n = 50,
   
   if (length(published.after)) {
     published.after <- paste0("&publishedAfter=", buildTime(published.after))
-  }
-  
-  # mine
-  if (mine == TRUE) {
-    mine <- paste0("&mine=true")
-  } else {
-    mine <- NULL
-  }
-  
-  # home
-  if(home == TRUE) {
-    home <- paste0("&home=true")
-  } else {
-    home <- NULL
   }
   
   testPart("getActivities", part)

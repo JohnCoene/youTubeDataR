@@ -61,7 +61,7 @@ specific channel.
 \examples{
 \dontrun{
 # Authenticate
-token <- youOauth(client.id = "something.apps.googleusercontent.com",
+token <- youOAuth(client.id = "something.apps.googleusercontent.com",
                   client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX")
                   
 # search videos about cats
