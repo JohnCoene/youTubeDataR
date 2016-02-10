@@ -1,13 +1,12 @@
 #' getActivities
 #' 
-#' @description Returns a list of caption tracks that are associated with a 
-#' specific channel.
+#' @description Returns a list of caption tracks matching a specific critera.
 #' 
 #' @param token 
 #' Your token as returned by \code{\link{youOAuth}}.
 #' @param channel.id 
 #' Indicates that the API response should only contain resources created by 
-#' the channel. The default value is \code{FALSE}.
+#' the channel. The default value is \code{NULL}.
 #' @param part 
 #' The part parameter specifies a comma-separated list of one or more activity 
 #' resource properties that the API response will include. The default value 
@@ -47,8 +46,8 @@
 #' If \code{TRUE} prints infromational messages in the console. 
 #' The default value is \code{FALSE}.
 #' 
-#' @details MUST specify one of \code{channel.id} OR \code{mine} (TRUE) OR 
-#' \code{home}
+#' @details MUST specify one of \code{channel.id} OR \code{mine} OR 
+#' \code{home}.
 #' 
 #' @examples 
 #' \dontrun{
@@ -56,7 +55,7 @@
 #' token <- youOAuth(client.id = "something.apps.googleusercontent.com",
 #'                   client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX")
 #'                   
-#' # search videos about cats
+#' # search channels about cats
 #' search <- searchTube(token, query = "cats", type = "channel")
 #' 
 #' # pick random channel id
@@ -72,7 +71,7 @@
 #' @export
 #' 
 #' @author John Coene \email{jcoenep@@hotmail.com}
-getActivities <- function(token, channel.id = FALSE, mine = FALSE, home = FALSE, 
+getActivities <- function(token, channel.id = NULL, mine = FALSE, home = FALSE, 
                           part = "snippet", n = 50, max.results = 50,  
                           published.before = Sys.time(), published.after = NULL, 
                           region.code = NULL, verbose = FALSE) {
@@ -80,12 +79,11 @@ getActivities <- function(token, channel.id = FALSE, mine = FALSE, home = FALSE,
   # check required arguments
   # check token
   checkToken(token)
-  if(missing(channel.id) || is.null(channel.id) && mine == FALSE && 
-     home == FALSE) {
+  if(is.null(channel.id) && mine == FALSE && home == FALSE) {
     stop("must provide channel.id or mine or home")
   } else {
     
-   c <- mine + home + channel.id
+   c <- mine + home + length(channel.id)
    
    if(length(c) > 1) {
      
@@ -168,7 +166,7 @@ getActivities <- function(token, channel.id = FALSE, mine = FALSE, home = FALSE,
     # else parse
   } else {
     
-    dat <- do.call(plyr::"rbind.fill", lapply(json$items, as.data.frame))
+    dat <- paginate(response , n, verbose)
     
   }
   

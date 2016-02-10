@@ -4,8 +4,8 @@
 \alias{getActivities}
 \title{getActivities}
 \usage{
-getActivities(token, channel.id = NULL, part = "snippet", n = 50,
-  max.results = 50, mine = FALSE, home = FALSE,
+getActivities(token, channel.id = NULL, mine = FALSE, home = FALSE,
+  part = "snippet", n = 50, max.results = 50,
   published.before = Sys.time(), published.after = NULL,
   region.code = NULL, verbose = FALSE)
 }
@@ -13,8 +13,14 @@ getActivities(token, channel.id = NULL, part = "snippet", n = 50,
 \item{token}{Your token as returned by \code{\link{youOAuth}}.}
 
 \item{channel.id}{Indicates that the API response should only contain resources created by 
-the channel. The default value is \code{NULL}. This parameters is 
-required.}
+the channel. The default value is \code{NULL}.}
+
+\item{mine}{Set this parameter's value to true to retrieve a feed of the authenticated 
+user's activities. The default value is \code{FALSE}.}
+
+\item{home}{Set this parameter's value to true to retrieve the activity feed that 
+displays on the YouTube home page for the currently authenticated user. 
+The default value is \code{FALSE}.}
 
 \item{part}{The part parameter specifies a comma-separated list of one or more activity 
 resource properties that the API response will include. The default value 
@@ -26,13 +32,6 @@ is \code{snippet}, can take any of \code{contentDetails}, \code{id} or
 \item{max.results}{Specifies the maximum number of results that should be returned 
 by each API call. Acceptable values are \code{0} to \code{50}, inclusive. 
 The default value is \code{50}.}
-
-\item{mine}{Set this parameter's value to true to retrieve a feed of the authenticated 
-user's activities. The default value is \code{FALSE}.}
-
-\item{home}{Set this parameter's value to true to retrieve the activity feed that 
-displays on the YouTube home page for the currently authenticated user. 
-The default value is \code{FALSE}.}
 
 \item{published.before}{Indicates that the API response should only contain resources created 
 before the specified time. Can be either of class \code{Date} ("%Y-%m-%d") 
@@ -55,8 +54,11 @@ country code. The default value is \code{NULL}.}
 The default value is \code{FALSE}.}
 }
 \description{
-Returns a list of caption tracks that are associated with a 
-specific channel.
+Returns a list of caption tracks matching a specific critera.
+}
+\details{
+MUST specify one of \code{channel.id} OR \code{mine} OR 
+\code{home}.
 }
 \examples{
 \dontrun{
@@ -64,7 +66,7 @@ specific channel.
 token <- youOAuth(client.id = "something.apps.googleusercontent.com",
                   client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX")
                   
-# search videos about cats
+# search channels about cats
 search <- searchTube(token, query = "cats", type = "channel")
 
 # pick random channel id
