@@ -27,7 +27,6 @@
 #' \item \code{event.type}
 #' \item \code{channel.type}
 #' \item \code{type}
-#' \item \code{part}
 #' }
 #' 
 #' @examples 
