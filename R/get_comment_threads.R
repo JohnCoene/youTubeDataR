@@ -70,7 +70,7 @@
 #' 
 #' # sample random channel
 #' set.seed(19880525)
-#' channel <- sample(search$id.channelId, 1)
+#' channel <- sample(search$snippet.id.channelId, 1)
 #' 
 #' # fetch comment thread
 #' cats <- getCommentThreads(token, all.threads.related.to.channel.id = channel)

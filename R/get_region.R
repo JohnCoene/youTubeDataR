@@ -19,7 +19,7 @@
 #'                   client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX")
 #' 
 #' # fetch languages
-#' lang <- getRegions(token)
+#' regions <- getRegions(token)
 #' }
 #' 
 #' @author John Coene \email{jcoenep@@hotmail.com}

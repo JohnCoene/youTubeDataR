@@ -179,9 +179,6 @@ paginate <- function(response, n = 50, verbose = FALSE) {
     
   } 
   
-  # remove "snippet." from names
-  names(dat) <- gsub("snippet.", "", names(dat))
-  
   return(dat)
   
 }

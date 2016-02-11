@@ -45,6 +45,21 @@
 #' 
 #' @details Must pass either \code{id} or \code{playlist.id}
 #' 
+#' @examples {
+#' # Authenticate
+#' token <- youOAuth(client.id = "something.apps.googleusercontent.com",
+#'                   client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX")
+#' 
+#' # search playlists
+#' search <- searchTube(token, query = "cats", type = "playlist")
+#' 
+#' # sample playlist id
+#' id <- sample(search$id.playlistId, 1)
+#' 
+#' # fetch
+#' items <- getPlaylistItems(token, playlist.id = id)
+#' }
+#' 
 #' @export
 #' 
 #' @author John Coene \email{jcoenep@hotmail.com}
@@ -67,7 +82,7 @@ getPlaylistItems <- function(token, part = "snippet", n = 50, id,
   }
   
   arguments <- namedList(max.results, on.behalf.of.content.owner,
-                         video.id)
+                         video.id, id, playlist.id)
   
   # buildParameters
   x <- list()
@@ -80,8 +95,8 @@ getPlaylistItems <- function(token, part = "snippet", n = 50, id,
   suffix <- paste(x, collapse = "")
   
   # build uri
-  uri <- paste0("https://www.googleapis.com/youtube/v3/guideCategories",
-                "?part=snippet", suffix)
+  uri <- paste0("https://www.googleapis.com/youtube/v3/playlistItems",
+                "?part=", part, suffix)
   
   # GET
   response <- httr::GET(uri, config = (token = token))

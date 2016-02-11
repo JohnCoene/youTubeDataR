@@ -81,7 +81,7 @@
 #' 
 #' # pick random id
 #' set.seed(19880525)
-#' chan <- sample(search$id.channelId, 1)
+#' chan <- sample(search$snippet.id.channelId, 1)
 #' 
 #' # fetch
 #' chan.dat <- getChannels(token, id = chan)

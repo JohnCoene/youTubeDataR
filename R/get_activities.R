@@ -60,7 +60,7 @@
 #' 
 #' # pick random channel id
 #' set.seed(19880525)
-#' chan <- sample(search$id.channelId, 1)
+#' chan <- sample(search$snippet.id.channelId, 1)
 #' 
 #' # fetch data
 #' act <- getActivities(token, channel.id = chan)
