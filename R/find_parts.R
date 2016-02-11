@@ -14,6 +14,8 @@
 #' \item \code{\link{getComments}}
 #' \item \code{\link{getCommentThreads}}
 #' \item \code{\link{getPlaylistItems}}
+#' \item \code{\link{getPlaylists}}
+#' \item \code{\link{getSubscriptions}}
 #' }
 #' Alternatively see \code{scope} in \code{\link{youOAuth}}.
 #' 
@@ -73,6 +75,15 @@ findParts <- function(FUN) {
   } else if (FUN == "getPlaylistItems") {
     
     valid <- c("contentDetails", "id", "snippet", "status")
+    
+  } else if (FUN == "getPlaylists") {
+    
+    valid <- c("contentDetails", "id", "localizations", "player", "snippet", 
+               "status")
+    
+  } else if (FUN == "getSubscriptions") {
+    
+    valid <- c("snippet", "contentDetails", "id", "subscriberSnippet")
     
   }
   

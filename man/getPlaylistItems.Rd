@@ -4,9 +4,9 @@
 \alias{getPlaylistItems}
 \title{getPlaylistItems}
 \usage{
-getPlaylistItems(token, part = "snippet", n = 50, id = NULL,
-  playlist.id = NULL, max.results = 50, on.behalf.of.content.owner = NULL,
-  video.id = NULL, verbose = FALSE)
+getPlaylistItems(token, part = "snippet", n = 50, id, playlist.id,
+  max.results = 50, on.behalf.of.content.owner = NULL, video.id = NULL,
+  verbose = FALSE)
 }
 \arguments{
 \item{token}{Your token as returned by \code{\link{youOAuth}}.}
@@ -53,7 +53,7 @@ Returns a collection of playlist items that match the API
 request parameters.
 }
 \details{
-Must pass one either \code{id} or \code{playlit.id}
+Must pass either \code{id} or \code{playlist.id}
 }
 \author{
 John Coene \email{jcoenep@hotmail.com}

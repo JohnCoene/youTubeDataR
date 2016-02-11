@@ -4,7 +4,7 @@
 \alias{getGuideCategories}
 \title{getGuideCategories}
 \usage{
-getGuideCategories(token, id = NULL, region.code = NULL, hl = NULL)
+getGuideCategories(token, id, region.code, hl = NULL)
 }
 \arguments{
 \item{token}{Your token as returned by \code{\link{youOAuth}}.}
@@ -24,6 +24,10 @@ response. The default value (from YouTube) is \code{en-US}. See
 \description{
 Returns a list of categories that can be associated with 
 YouTube channels.
+}
+\details{
+Must specify one (and only one) filter \code{id} or 
+\code{region.code}
 }
 \examples{
 \dontrun{

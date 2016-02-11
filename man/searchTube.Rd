@@ -47,8 +47,8 @@ See \code{\link{findParams}} for valid values.
 If you specify a value for this parameter, you must also set the \code{type} 
 parameter's value to \code{video}.}
 
-\item{video.category.id}{Filters video search results based on their 
-\href{https://developers.google.com/youtube/v3/docs/videoCategories}{category}.}
+\item{video.category.id}{Filters video search results based on their category ID as returned by 
+\code{\link{getVideoCategories}}.}
 
 \item{video.duration}{Filters video search results based on their duration. The default value is 
 \code{any}. See \code{\link{findParams}} for valid values.
@@ -198,6 +198,15 @@ safety <- findParams("safe.search")[grep("strict",
 clean.cats <- searchVideos(token, query = "clean cats", safe.search = safety,
                            location = c(lat = 37.2350, long = 115.8111),
                            location.radius = "5km", type = "channel")
+                           
+# fetch video catgeories
+video.cat <- getVideoCategories(token, region.code = "US")
+
+# filter pet-related video categories
+video.cat <- video.cat[grep("Pets", video.cat$snippet.title),] 
+
+# fetch by category
+pets <- searchTube(token, query = "cats", video.category.id = video.cat[1])
 }
 
 }
