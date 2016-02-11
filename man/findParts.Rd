@@ -23,6 +23,8 @@ Valid \code{FUN}:
 \item \code{\link{getComments}}
 \item \code{\link{getCommentThreads}}
 \item \code{\link{getPlaylistItems}}
+\item \code{\link{getPlaylists}}
+\item \code{\link{getSubscriptions}}
 }
 Alternatively see \code{scope} in \code{\link{youOAuth}}.
 }

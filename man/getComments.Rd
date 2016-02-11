@@ -4,8 +4,8 @@
 \alias{getComments}
 \title{getComments}
 \usage{
-getComments(token, part = "snippet", n = 50, max.results = 50,
-  id = NULL, parent.id = NULL, text.format = "html", verbose = FALSE)
+getComments(token, part = "snippet", n = 50, max.results = 50, id,
+  parent.id, text.format = "html", verbose = FALSE)
 }
 \arguments{
 \item{token}{Your token as returned by \code{\link{youOAuth}}.}
@@ -40,7 +40,7 @@ Returns a list of comments that match the API request
 parameters.
 }
 \details{
-Must specify one (of )and only one) of \code{id} or 
+Must specify one (and only one) of \code{id} or 
 \code{parent.id}.
 }
 \examples{

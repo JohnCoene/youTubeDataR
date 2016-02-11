@@ -18,6 +18,9 @@
 #' response. The default value (from YouTube) is \code{en-US}. See 
 #' \code{\link{getLanguages}}
 #' 
+#' @details Must specify one (and only one) filter \code{id} or 
+#' \code{region.code}
+#' 
 #' @examples 
 #' \dontrun{
 #' token <- youOAuth(client.id = "something.apps.googleusercontent.com",
@@ -30,7 +33,7 @@
 #' @export
 #' 
 #' @author John Coene \email{jcoenep@@hotmail.com}
-getGuideCategories <- function (token, id = NULL, region.code = NULL, hl = NULL) 
+getGuideCategories <- function (token, id, region.code, hl = NULL) 
   {
   
   # check token

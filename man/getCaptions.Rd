@@ -4,14 +4,14 @@
 \alias{getCaptions}
 \title{getCaptions}
 \usage{
-getCaptions(token, video.id = NULL, part = "snippet", id = NULL,
+getCaptions(token, video.id, part = "snippet", id = NULL,
   on.behalf.of.content.owner = NULL)
 }
 \arguments{
 \item{token}{Your token as returned by \code{\link{youOAuth}}.}
 
 \item{video.id}{specifies the YouTube video ID of the video for which the API should return 
-caption tracks.}
+caption tracks. Required.}
 
 \item{part}{specifies the caption resource parts that the API response will include. 
 The default vlaue is \code{snippet}, can take any of \code{id} or 
@@ -31,7 +31,7 @@ authentication credentials for each individual channel. The actual CMS
 account that the user authenticates with must be linked to the specified 
 YouTube content owner. This parameter can only be used in a properly 
 authorized request. Note: This parameter is intended exclusively for 
-YouTube content partners. See scope under \code{link{youOAuth}}. 
+YouTube content partners. See scopes under \code{link{youOAuth}}. 
 The default value is \code{NULL}.}
 }
 \description{

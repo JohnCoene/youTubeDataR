@@ -4,7 +4,7 @@
 \alias{getActivities}
 \title{getActivities}
 \usage{
-getActivities(token, channel.id = NULL, mine = FALSE, home = FALSE,
+getActivities(token, channel.id, mine = FALSE, home = FALSE,
   part = "snippet", n = 50, max.results = 50,
   published.before = Sys.time(), published.after = NULL,
   region.code = NULL, verbose = FALSE)
@@ -13,7 +13,7 @@ getActivities(token, channel.id = NULL, mine = FALSE, home = FALSE,
 \item{token}{Your token as returned by \code{\link{youOAuth}}.}
 
 \item{channel.id}{Indicates that the API response should only contain resources created by 
-the channel. The default value is \code{NULL}.}
+the channel.}
 
 \item{mine}{Set this parameter's value to true to retrieve a feed of the authenticated 
 user's activities. The default value is \code{FALSE}.}

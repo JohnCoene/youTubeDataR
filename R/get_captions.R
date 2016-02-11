@@ -7,7 +7,7 @@
 #' Your token as returned by \code{\link{youOAuth}}.
 #' @param video.id 
 #' specifies the YouTube video ID of the video for which the API should return 
-#' caption tracks.
+#' caption tracks. Required.
 #' @param part 
 #' specifies the caption resource parts that the API response will include. 
 #' The default vlaue is \code{snippet}, can take any of \code{id} or 
@@ -27,7 +27,7 @@
 #' account that the user authenticates with must be linked to the specified 
 #' YouTube content owner. This parameter can only be used in a properly 
 #' authorized request. Note: This parameter is intended exclusively for 
-#' YouTube content partners. See scope under \code{link{youOAuth}}. 
+#' YouTube content partners. See scopes under \code{link{youOAuth}}. 
 #' The default value is \code{NULL}.
 #' 
 #' @details See scope in \code{\link{youOAuth}}. Required authorisation: 
@@ -58,11 +58,13 @@
 #' @author John Coene \email{jcoenep@@hotmail.com}
 #' 
 #' @export
-getCaptions <- function(token, video.id = NULL, part = "snippet", id = NULL,
+getCaptions <- function(token, video.id, part = "snippet", id = NULL,
                         on.behalf.of.content.owner = NULL) {
   
+  if(missing(video.id)) video.id <- NULL
+  
   # check required arguments
-  if (missing(video.id) || is.null(video.id)) {
+  if (is.null(video.id)) {
     stop("video.id is missing")
   }
   # check token

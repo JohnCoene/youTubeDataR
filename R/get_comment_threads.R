@@ -15,17 +15,17 @@
 #' @param all.threads.related.to.channel.id 
 #' Instructs the API to return all comment threads associated with the 
 #' specified channel. The response can include comments about the channel or 
-#' about the channel's videos. The default value is \code{NULL}.
+#' about the channel's videos.
 #' @param channel.id 
 #' Instructs the API to return comment threads containing comments about the 
 #' specified channel. (The response will not include comments left on videos 
-#' that the channel uploaded.). The default value is \code{NULL}.
+#' that the channel uploaded.).
 #' @param id 
 #' Specifies a comma-separated list of comment thread IDs for the resources 
-#' that should be retrieved. The default value is \code{NULL}.
+#' that should be retrieved.
 #' @param video.id 
 #' Instructs the API to return comment threads associated with the specified 
-#' video ID. The default value is \code{NULL}.
+#' video ID.
 #' @param max.results 
 #' Specifies the maximum number of results that should be returned 
 #' by each API call. Acceptable values are \code{0} to \code{100}, inclusive. 
@@ -80,12 +80,18 @@
 #' 
 #' @author John Coene \email{jcoenep@@hotmail.com}
 getCommentThreads <- function(token, part = "snippet", n = 20, 
-                              channel.id = NULL, 
-                              all.threads.related.to.channel.id = NULL, 
-                              id = NULL, video.id = NULL, max.results = NULL, 
-                              moderation.status = "published",
-                              order = NULL, search.terms = NULL, 
-                              text.format = NULL, verbose = FALSE) {
+                              channel.id, all.threads.related.to.channel.id, 
+                              id, video.id, max.results = NULL, 
+                              moderation.status = "published", order = NULL, 
+                              search.terms = NULL, text.format = NULL, 
+                              verbose = FALSE) {
+  
+  if(missing(channel.id)) channel.id <- NULL
+  if(missing(all.threads.related.to.channel.id)) {
+    all.threads.related.to.channel.id <- NULL
+  }
+  if(missing(id)) id <- NULL
+  if(missing(video.id)) video.id<- NULL
   
   # check token
   checkToken(token)

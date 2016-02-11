@@ -31,7 +31,7 @@
 #' If \code{TRUE} prints infromational messages in the console. 
 #' The default value is \code{FALSE}.
 #' 
-#' @details Must specify one (of )and only one) of \code{id} or 
+#' @details Must specify one (and only one) of \code{id} or 
 #' \code{parent.id}.
 #' 
 #' @examples 
@@ -45,8 +45,10 @@
 #' 
 #' @export
 getComments <- function(token, part = "snippet", n = 50, max.results = 50, 
-                        id = NULL, parent.id = NULL, text.format = "html", 
-                        verbose = FALSE){
+                        id, parent.id, text.format = "html", verbose = FALSE){
+  
+  if(missing(id)) id <- NULL
+  if(missing(parent.id)) parent.id <- NULL
   
   # check required arguments
   checkToken(token)
@@ -100,7 +102,7 @@ getComments <- function(token, part = "snippet", n = 50, max.results = 50,
   
   # parse
   json <- jsonlite::fromJSON(rawToChar(response$content),
-                             simplifyDataFrame = F)
+                             simplifyDataFrame = FALSE)
   
   # check if error
   if(length(json$error)) {

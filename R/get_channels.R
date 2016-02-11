@@ -66,8 +66,8 @@
 #' \item \code{category.id}
 #' \item \code{for.username}
 #' \item \code{id}
-#' \item \code{managed.by.me}
-#' \item \code{mine}
+#' \item \code{managed.by.me} (\code{TRUE})
+#' \item \code{mine} (\code{TRUE})
 #' }
 #' 
 #' @examples 
@@ -90,10 +90,14 @@
 #' @export
 #' 
 #' @author John Coene \email{jcoenep@@hotmail.com}
-getChannels <- function(token, n = 50, part = "snippet", category.id = NULL, 
-                        for.username = NULL, id = NULL, managed.by.me = FALSE, 
+getChannels <- function(token, n = 50, part = "snippet", category.id, 
+                        for.username, id, managed.by.me = FALSE, 
                         mine = FALSE, hl = NULL, max.results = 50, 
                         on.behalf.of.content.owner = NULL, verbose = FALSE) {
+  
+  if(missing(category.id)) category.id <- NULL
+  if(missing(for.username)) for.username <- NULL
+  if(missing(id)) id <- NULL
   
   # check token
   checkToken(token)

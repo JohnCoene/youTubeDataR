@@ -16,10 +16,11 @@
 #' @param mine 
 #' Set this parameter's value to true to retrieve a feed of the authenticated 
 #' user's activities. The default value is \code{FALSE}.
-#' @param home 
-#' Set this parameter's value to true to retrieve the activity feed that 
-#' displays on the YouTube home page for the currently authenticated user. 
-#' The default value is \code{FALSE}.
+#' @param id 
+#' Specifies a comma-separated list of IDs that uniquely identify the 
+#' channelSection resources that are being retrieved. In a 
+#' \code{getChannelSections} resource, the id property specifies the section's 
+#' ID.
 #' @param hl 
 #' The hl parameter instructs the API to retrieve localized resource metadata 
 #' for a specific application language that the YouTube website supports. The 
@@ -42,26 +43,32 @@
 #' If \code{TRUE} prints infromational messages in the console. 
 #' The default value is \code{FALSE}.
 #' 
+#' @details Must specify one (and only one) of \code{mine} (\code{TRUE}), 
+#' \code{id} or \code{channel.id}.
+#' 
 #' @export
 #' 
 #' @author John Coene \email{jcoenep@@hotmail.com}
 getChannelSections <- function(token, channel.id, part = "snippet", 
-                               mine = FALSE, home = FALSE, hl = NULL, 
+                               mine = FALSE, id, hl = NULL, 
                                on.behalf.of.content.owner = NULL, 
                                verbose = FALSE) {
+  
+  if(missing(channel.id)) channel.id <- NULL
+  if(missing(id)) id <- NULL
   
   # check required arguments
   # check token
   checkToken(token)
-  if(is.null(channel.id) && mine == FALSE && home == FALSE) {
-    stop("must provide channel.id or mine or home")
+  if(is.null(channel.id) && mine == FALSE && is.null(id)) {
+    stop("must provide channel.id or mine or id")
   } else {
     
-    c <- mine + home + length(channel.id)
+    c <- mine + length(id) + length(channel.id)
     
     if(c > 1) {
       
-      stop("can only specify one of home, mine or channel.id")
+      stop("can only specify one of id, mine or channel.id")
       
     } else {
       
@@ -72,18 +79,11 @@ getChannelSections <- function(token, channel.id, part = "snippet",
         mine <- NULL
       }
       
-      # home
-      if(home == TRUE) {
-        home <- paste0("&home=true")
-      } else {
-        home <- NULL
-      }
-      
     }
     
   }
   
-  arguments <- namedList(channel.id, hl, on.behalf.of.content.owner)
+  arguments <- namedList(channel.id, hl, on.behalf.of.content.owner, id)
   
   # buildParameters
   x <- list()
@@ -99,7 +99,7 @@ getChannelSections <- function(token, channel.id, part = "snippet",
   
   # build uri
   uri <- paste0("https://www.googleapis.com/youtube/v3/channelSections?part=",
-                part, suffix, mine, home)
+                part, suffix, mine)
   
   # GET
   response <- httr::GET(uri, config = (token = token))

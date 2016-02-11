@@ -43,15 +43,18 @@
 #' If \code{TRUE} prints infromational messages in the console. 
 #' The default value is \code{FALSE}.
 #' 
-#' @details Must pass one either \code{id} or \code{playlit.id}
+#' @details Must pass either \code{id} or \code{playlist.id}
 #' 
 #' @export
 #' 
 #' @author John Coene \email{jcoenep@hotmail.com}
-getPlaylistItems <- function(token, part = "snippet", n = 50, id = NULL, 
-                             playlist.id = NULL, max.results = 50, 
+getPlaylistItems <- function(token, part = "snippet", n = 50, id, 
+                             playlist.id, max.results = 50, 
                              on.behalf.of.content.owner = NULL, 
                              video.id = NULL, verbose = FALSE) {
+  
+  if(missing(id)) id <- NULL
+  if(missing(playlist.id)) playlist.id <- NULL
   
   # check token
   checkToken(token)

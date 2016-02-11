@@ -6,7 +6,7 @@
 #' Your token as returned by \code{\link{youOAuth}}.
 #' @param channel.id 
 #' Indicates that the API response should only contain resources created by 
-#' the channel. The default value is \code{NULL}.
+#' the channel.
 #' @param part 
 #' The part parameter specifies a comma-separated list of one or more activity 
 #' resource properties that the API response will include. The default value 
@@ -71,7 +71,7 @@
 #' @export
 #' 
 #' @author John Coene \email{jcoenep@@hotmail.com}
-getActivities <- function(token, channel.id = NULL, mine = FALSE, home = FALSE, 
+getActivities <- function(token, channel.id, mine = FALSE, home = FALSE, 
                           part = "snippet", n = 50, max.results = 50,  
                           published.before = Sys.time(), published.after = NULL, 
                           region.code = NULL, verbose = FALSE) {
@@ -79,6 +79,8 @@ getActivities <- function(token, channel.id = NULL, mine = FALSE, home = FALSE,
   # check required arguments
   # check token
   checkToken(token)
+  
+  if(missing(channel.id)) channel.id <- NULL
   
   if(is.null(channel.id) && mine == FALSE && home == FALSE) {
     stop("must provide channel.id or mine or home")

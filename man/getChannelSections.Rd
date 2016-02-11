@@ -4,9 +4,8 @@
 \alias{getChannelSections}
 \title{getChannelSections}
 \usage{
-getChannelSections(token, channel.id, part = "snippet", mine = FALSE,
-  home = FALSE, hl = NULL, on.behalf.of.content.owner = NULL,
-  verbose = FALSE)
+getChannelSections(token, channel.id, part = "snippet", mine = FALSE, id,
+  hl = NULL, on.behalf.of.content.owner = NULL, verbose = FALSE)
 }
 \arguments{
 \item{token}{Your token as returned by \code{\link{youOAuth}}.}
@@ -22,9 +21,10 @@ is \code{snippet}, can take any of \code{contentDetails}, \code{id} or
 \item{mine}{Set this parameter's value to true to retrieve a feed of the authenticated 
 user's activities. The default value is \code{FALSE}.}
 
-\item{home}{Set this parameter's value to true to retrieve the activity feed that 
-displays on the YouTube home page for the currently authenticated user. 
-The default value is \code{FALSE}.}
+\item{id}{Specifies a comma-separated list of IDs that uniquely identify the 
+channelSection resources that are being retrieved. In a 
+\code{getChannelSections} resource, the id property specifies the section's 
+ID.}
 
 \item{hl}{The hl parameter instructs the API to retrieve localized resource metadata 
 for a specific application language that the YouTube website supports. The 
@@ -50,6 +50,10 @@ The default value is \code{FALSE}.}
 \description{
 Returns a list of channelSection resources that match the API 
 request criteria.
+}
+\details{
+Must specify one (and only one) of \code{mine} (\code{TRUE}), 
+\code{id} or \code{channel.id}.
 }
 \author{
 John Coene \email{jcoenep@hotmail.com}

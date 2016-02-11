@@ -4,10 +4,9 @@
 \alias{getChannels}
 \title{getChannels}
 \usage{
-getChannels(token, n = 50, part = "snippet", category.id = NULL,
-  for.username = NULL, id = NULL, managed.by.me = FALSE, mine = FALSE,
-  hl = NULL, max.results = 50, on.behalf.of.content.owner = NULL,
-  verbose = FALSE)
+getChannels(token, n = 50, part = "snippet", category.id, for.username, id,
+  managed.by.me = FALSE, mine = FALSE, hl = NULL, max.results = 50,
+  on.behalf.of.content.owner = NULL, verbose = FALSE)
 }
 \arguments{
 \item{token}{Your token as returned by \code{\link{youOAuth}}.}
@@ -77,8 +76,8 @@ MUST specify at least one of the following:
 \item \code{category.id}
 \item \code{for.username}
 \item \code{id}
-\item \code{managed.by.me}
-\item \code{mine}
+\item \code{managed.by.me} (\code{TRUE})
+\item \code{mine} (\code{TRUE})
 }
 }
 \examples{
