@@ -55,6 +55,23 @@ request parameters.
 \details{
 Must pass either \code{id} or \code{playlist.id}
 }
+\examples{
+\dontrun{
+# Authenticate
+token <- youOAuth(client.id = "something.apps.googleusercontent.com",
+                  client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX")
+
+# search playlists
+search <- searchTube(token, query = "cats", type = "playlist")
+
+# sample playlist id
+id <- sample(search$id.playlistId, 1)
+
+# fetch
+items <- getPlaylistItems(token, playlist.id = id)
+}
+
+}
 \author{
 John Coene \email{jcoenep@hotmail.com}
 }

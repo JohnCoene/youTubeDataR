@@ -15,7 +15,7 @@ getSubscriptions(token, part = "snippet", channel.id, id, mine = FALSE,
 
 \item{part}{The part parameter specifies a comma-separated list of one or more activity 
 resource properties that the API response will include. The default value 
-is \code{snippet}, see \code{link{findParts}} for all valid values..}
+is \code{snippet}, see \code{link{findParts}} for all valid values.}
 
 \item{channel.id}{Specifies a YouTube channel ID. The API will only return that channel's 
 subscriptions.}
@@ -94,7 +94,7 @@ search <- searchTube(token, query = "cats", type = "channel")
 
 # pick random channel
 set.seed(19880525)
-chan <- sample(search$id.channelId, 1)
+chan <- sample(search$snippet.id.channelId, 1)
 
 # fetch subs
 subs <- getSubscriptions(token, channel.id = chan)

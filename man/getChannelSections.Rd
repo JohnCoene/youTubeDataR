@@ -55,6 +55,21 @@ request criteria.
 Must specify one (and only one) of \code{mine} (\code{TRUE}), 
 \code{id} or \code{channel.id}.
 }
+\examples{
+\dontrun{
+#Authenticate
+token <- youOAuth(client.id = "something.apps.googleusercontent.com",
+                  client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX")
+
+# search channels on cats
+search <- searchTube(token, query = "cats", type = "channel")
+
+# get channel sections
+sections <- getChannelSections(token, 
+                               channel.id = search$snippet.channelId [1])
+}
+
+}
 \author{
 John Coene \email{jcoenep@hotmail.com}
 }
