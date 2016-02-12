@@ -66,7 +66,7 @@
 #' act <- getActivities(token, channel.id = chan)
 #' }
 #' 
-#' @seealso \code{link{youOAuth}}, \code{\link{findParts}}
+#' @seealso \code{\link{youOAuth}}, \code{\link{findParts}}
 #' 
 #' @export
 #' 

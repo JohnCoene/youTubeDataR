@@ -7,7 +7,7 @@
 #' @param part 
 #' The part parameter specifies a comma-separated list of one or more activity 
 #' resource properties that the API response will include. The default value 
-#' is \code{snippet}, see \code{link{findParts}} for all valid values.
+#' is \code{snippet}, see \code{\link{findParts}} for all valid values.
 #' @param n 
 #' Number of results to fecth. The default value is \code{50}.
 #' @param max.results 

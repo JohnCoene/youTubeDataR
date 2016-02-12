@@ -11,7 +11,7 @@
 #' @param part 
 #' specifies the caption resource parts that the API response will include. 
 #' The default vlaue is \code{snippet}, can take any of \code{id} or 
-#' \code{snippet}. See \code{link{findParts}}.
+#' \code{snippet}. See \code{\link{findParts}}.
 #' @param id 
 #' The id parameter specifies a comma-separated list of IDs that identify the 
 #' caption resources that should be retrieved. Each ID must identify a caption 
@@ -27,7 +27,7 @@
 #' account that the user authenticates with must be linked to the specified 
 #' YouTube content owner. This parameter can only be used in a properly 
 #' authorized request. Note: This parameter is intended exclusively for 
-#' YouTube content partners. See scopes under \code{link{youOAuth}}. 
+#' YouTube content partners. See scopes under \code{\link{youOAuth}}. 
 #' The default value is \code{NULL}.
 #' 
 #' @details See scope in \code{\link{youOAuth}}. Required authorisation: 
