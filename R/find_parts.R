@@ -16,6 +16,7 @@
 #' \item \code{\link{getPlaylistItems}}
 #' \item \code{\link{getPlaylists}}
 #' \item \code{\link{getSubscriptions}}
+#' \item \code{\link{getVideos}}
 #' }
 #' Alternatively see \code{scope} in \code{\link{youOAuth}}.
 #' 
@@ -84,6 +85,17 @@ findParts <- function(FUN) {
   } else if (FUN == "getSubscriptions") {
     
     valid <- c("snippet", "contentDetails", "id", "subscriberSnippet")
+    
+  } else if (FUN == "getVideos") {
+    
+    valid <- c("contentDetails", "fileDetails", "id", "liveStreamingDetails",
+               "localizations", "player", "processingDetails", 
+               "recordingDetails", "snippet", "statistics", "status", 
+               "suggestions", "topicDetails")
+    
+  } else {
+    
+    stop("wrong FUN passed, see @details")
     
   }
   
