@@ -25,6 +25,7 @@ Valid \code{FUN}:
 \item \code{\link{getPlaylistItems}}
 \item \code{\link{getPlaylists}}
 \item \code{\link{getSubscriptions}}
+\item \code{\link{getVideos}}
 }
 Alternatively see \code{scope} in \code{\link{youOAuth}}.
 }
