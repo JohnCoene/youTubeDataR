@@ -45,7 +45,8 @@
 #' 
 #' @details Must pass either \code{id} or \code{playlist.id}
 #' 
-#' @examples {
+#' @examples 
+#' \dontrun{
 #' # Authenticate
 #' token <- youOAuth(client.id = "something.apps.googleusercontent.com",
 #'                   client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX")
@@ -93,6 +94,9 @@ getPlaylistItems <- function(token, part = "snippet", n = 50, id,
   
   # collapse
   suffix <- paste(x, collapse = "")
+  
+  # test part
+  testPart("getPlaylistItems", part)
   
   # build uri
   uri <- paste0("https://www.googleapis.com/youtube/v3/playlistItems",
