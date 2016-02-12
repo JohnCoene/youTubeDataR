@@ -138,7 +138,7 @@ getPlaylists <- function(token, part = "snippet", channel.id, id, mine = FALSE,
   # collapse
   suffix <- paste(x, collapse = "")
   
-  testPart("getComments", part)
+  testPart("getPlaylists", part)
   
   # build uri
   uri <- paste0("https://www.googleapis.com/youtube/v3/playlists?part=", part,

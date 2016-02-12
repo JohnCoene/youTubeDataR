@@ -83,7 +83,7 @@ getCaptions <- function(token, video.id, part = "snippet", id = NULL,
   # collapse
   suffix <- paste(x, collapse = "")
   
-  testPart("getActivities", part)
+  testPart("getCaptions", part)
   
   # build uri
   uri <- paste0("https://www.googleapis.com/youtube/v3/captions?part=", part, 
