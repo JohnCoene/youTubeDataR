@@ -57,6 +57,7 @@ findParams <- function(param) {
     
     valid <- c("date", "rating", "relevance", "title", "videoCount",
                "viewCount")
+    
   } else if (missing(param)) {
     
     stop("Please specify a parameter")
@@ -115,7 +116,7 @@ findParams <- function(param) {
     
   } else if (param == "moderation.status") {
     
-    valid < c("heldForReview", "likelySpam", "published")
+    valid <- c("heldForReview", "likelySpam", "published")
     
   } else {
     
