@@ -4,4 +4,3 @@
 .httr-oauth
 .Rbuildignore
 youTubeDataR.Rproj
-token_file
