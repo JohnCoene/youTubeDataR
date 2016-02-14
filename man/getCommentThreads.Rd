@@ -15,7 +15,7 @@ getCommentThreads(token, part = "snippet", n = 20, channel.id,
 \item{part}{The part parameter specifies a comma-separated list of one or more activity 
 resource properties that the API response will include. The default value 
 is \code{snippet}, can take any of \code{snippet} or \code{id}. 
-See \code{link{findParts}}.}
+See \code{\link{findParts}}.}
 
 \item{n}{Number of results to fecth. The default value is \code{20}.}
 

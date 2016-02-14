@@ -82,6 +82,6 @@ act <- getActivities(token, channel.id = chan)
 John Coene \email{jcoenep@hotmail.com}
 }
 \seealso{
-\code{link{youOAuth}}, \code{\link{findParts}}
+\code{\link{youOAuth}}, \code{\link{findParts}}
 }
 
