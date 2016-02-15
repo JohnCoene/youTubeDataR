@@ -3,7 +3,7 @@ library(youTubeDataR)
 test_that("getActivities and getChannelSections getCommentThreads test", {
   
   # load token
-  source("./tests/testthat/token.R")
+  TK = readRDS("token_file.rds")
   
   # search channel
   search = searchTube(TK, query = "R tutorial", type = "channel")
@@ -41,7 +41,7 @@ test_that("getActivities and getChannelSections getCommentThreads test", {
 test_that("getChannels and getGuideCategories test", {
   
   # load token
-  source("./tests/testthat/token.R")
+  TK = readRDS("token_file.rds")
   
   # test error if missing required values
   expect_error(getGuideCategories(TK))
