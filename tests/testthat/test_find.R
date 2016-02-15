@@ -29,9 +29,23 @@ test_that("Test findParts return values", {
   # channel sections
   expect_equal(findParts("getChannelSections"), c("contentDetails", "id", 
                                                   "localizations", "snippet"))
+  
+  # playlists
+  expect_equal(findParts("getPlaylists"), c("contentDetails", "id", 
+                                            "localizations", "player", 
+                                            "snippet", "status"))
 })
 
 test_that("Test findParams return values", {
+  
+  # error
+  expect_error(findParams())
+  expect_error(findParams("error"))
+  
+  # type
+  type = findParams("type")
+  expect_equal(type, c("any", "channel", "playlist", "video"))
+  
   # order
   order = findParams("order")
   expect_equal(order, c("date", "rating", "relevance", "title", "videoCount", 

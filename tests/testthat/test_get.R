@@ -1,6 +1,6 @@
 library(youTubeDataR)
 
-test_that("getActivities and getChannelSections getCommentThreads test", {
+test_that("getActivities and getChannelSections getCommentThreads", {
   
   # load token
   TK = readRDS("token_file.rds")
@@ -38,10 +38,14 @@ test_that("getActivities and getChannelSections getCommentThreads test", {
   expect_error(getCommentThreads(TK))
 })
 
-test_that("getChannels and getGuideCategories test", {
+test_that("getChannels and getGuideCategories", {
   
   # load token
   TK = readRDS("token_file.rds")
+  
+  # error
+  expect_error(getChannels())
+  expect_error(getChannels(TK))
   
   # test error if missing required values
   expect_error(getGuideCategories(TK))
@@ -60,4 +64,53 @@ test_that("getChannels and getGuideCategories test", {
   
   # test nrow 50
   expect_equal(nrow(chan), 50)
+})
+
+test_that("getPlaylists", {
+  
+  # error
+  expect_error(getPlaylists())
+  
+  # load token
+  TK = readRDS("token_file.rds")
+  
+  # search playlists
+  search = searchTube(TK, "cats", type = "playlist")
+  
+  # pick first two playlist ids
+  ids = paste0(search$id.playlistId[1], ",", search$id.playlistId[2])
+  
+  # get playlists
+  pl = getPlaylists(TK, part = "player", id = ids)
+  
+  #test
+  expect_equal(nrow(pl), 2)
+  expect_is(pl, "data.frame")
+  
+})
+
+test_that("getRegions and getLanguages", {
+  
+  # load token
+  TK = readRDS("token_file.rds")
+  
+  # error
+  expect_error(getRegions())
+  
+  # hl
+  reg = getRegions(TK)
+  
+  # test
+  expect_equal(nrow(reg), 89)
+  
+  # grep
+  be = reg[grep("BE", reg$snippet.gl),]
+  
+  # test
+  expect_equal(nrow(be), 1)
+  
+  # lang
+  lang = getLanguages(TK)
+  
+  expect_equal(nrow(lang), 76)
 })
