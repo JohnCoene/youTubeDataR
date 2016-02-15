@@ -10,4 +10,4 @@ env:
 - NOT_CRAN="true"
 before_install:
 - openssl aes-256-cbc -K $encrypted_73a17727440f_key -iv $encrypted_73a17727440f_iv
-  -in token_file.rds.enc -out tests/testthat/token_file.rds -d
+  -in tests/testthat/token_file.rds.enc -out tests/testthat/token_file.rds -d
