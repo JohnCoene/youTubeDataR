@@ -41,7 +41,8 @@
 #' Instructs the API to return search results for the specified country. The 
 #' parameter value is an 
 #' \href{http://www.iso.org/iso/country_codes/iso_3166_code_lists/country_names_and_code_elements.htm}{ISO 3166-1 alpha-2} 
-#' country code. The default value is \code{NULL}.
+#' country code. The default value is \code{NULL}. 
+#' See \code{\link{getRegions}}
 #' @param verbose 
 #' If \code{TRUE} prints infromational messages in the console. 
 #' The default value is \code{FALSE}.
