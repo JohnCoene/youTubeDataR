@@ -214,6 +214,7 @@ searchTube <- function(token, query, n = 50, type = "any", order = "relevance",
   if (missing(query)) {
     stop("query is missing")
   }
+  
   # check token
   checkToken(token)
   
@@ -322,7 +323,7 @@ searchTube <- function(token, query, n = 50, type = "any", order = "relevance",
     # else parse
   } else {
     
-    dat <- paginate(response, n, verbose)
+    dat <- paginate(response, n, verbose, token)
     
   }
   

@@ -169,7 +169,7 @@ getActivities <- function(token, channel.id, mine = FALSE, home = FALSE,
     # else parse
   } else {
     
-    dat <- paginate(response , n, verbose)
+    dat <- paginate(response , n, verbose, token)
     
   }
   

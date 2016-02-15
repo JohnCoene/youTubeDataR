@@ -113,7 +113,7 @@ getComments <- function(token, part = "snippet", n = 50, max.results = 50,
     # else parse
   } else {
     
-    dat <- paginate(response , n, verbose)
+    dat <- paginate(response , n, verbose, token)
     
   }
   

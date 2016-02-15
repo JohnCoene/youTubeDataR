@@ -133,7 +133,7 @@ buildLocation <- function(location) {
 }
 
 # paginate
-paginate <- function(response, n = 50, verbose = FALSE) {
+paginate <- function(response, n = 50, verbose = FALSE, token = token) {
   
   # parse
   json <- jsonlite::fromJSON(rawToChar(response$content),

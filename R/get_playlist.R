@@ -18,7 +18,7 @@
 #' @param channel.id 
 #' Indicates that the API should only return the specified channel's playlists.
 #' @param id 
-#' pecifies a comma-separated list of the YouTube playlist ID(s) for the 
+#' Specifies a comma-separated list of the YouTube playlist ID(s) for the 
 #' resource(s) that are being retrieved.
 #' @param mine 
 #' This parameter can only be used in a properly authorized request. 
@@ -160,7 +160,7 @@ getPlaylists <- function(token, part = "snippet", channel.id, id, mine = FALSE,
     # else parse
   } else {
     
-    dat <- paginate(response , n, verbose)
+    dat <- paginate(response , n, verbose, token)
     
   }
   

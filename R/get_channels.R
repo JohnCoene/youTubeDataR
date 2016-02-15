@@ -194,7 +194,7 @@ getChannels <- function(token, n = 50, part = "snippet", category.id,
     # else parse
   } else {
     
-    dat <- paginate(response , n, verbose)
+    dat <- paginate(response , n, verbose, token)
     
   }
   

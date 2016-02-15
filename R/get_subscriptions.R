@@ -172,7 +172,7 @@ getSubscriptions <- function(token, part = "snippet", channel.id, id,
     # else parse
   } else {
     
-    dat <- paginate(response , n, verbose)
+    dat <- paginate(response , n, verbose, token)
     
   }
   

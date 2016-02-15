@@ -7,7 +7,7 @@
 #' Your token as returned by \code{\link{youOAuth}}.
 #' @param hl 
 #' Specifies the language that should be used for text values in the API 
-#' response. The default value is \code{en_US}. Optional argument.'
+#' response. The default value is \code{en_US}. Optional argument.
 #' @param verbose 
 #' If \code{TRUE} prints infromational messages in the console. 
 #' The default value is \code{FALSE}.
