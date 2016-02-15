@@ -36,7 +36,8 @@ Integrates R and the YouTube Data API.
 ```
 # Authenticate
 TK <- youOauth(client.id = "something.apps.googleusercontent.com",
-               client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX")
+               client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX", 
+               scope = "force-ssl")
                
 # search channels about R tutorials
 search <- searchTube(TK, query = "R tutorial", type = "channel")
