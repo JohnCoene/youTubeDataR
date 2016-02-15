@@ -36,6 +36,9 @@
 getGuideCategories <- function (token, id, region.code, hl = NULL) 
   {
   
+  if(missing(id)) id <- NULL
+  if(missing(region.code)) region.code <- NULL
+  
   # check token
   checkToken(token)
   
