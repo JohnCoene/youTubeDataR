@@ -1,10 +1,13 @@
 language: R
 r_packages:
-  - httr
-  - jsonlite
-  - plyr
-  - covr
+- httr
+- jsonlite
+- plyr
+- covr
 after_success:
-  - Rscript -e 'covr::codecov()'
+- Rscript -e 'covr::codecov()'
 env:
-  - NOT_CRAN="true"
+- NOT_CRAN="true"
+before_install:
+- openssl aes-256-cbc -K $encrypted_73a17727440f_key -iv $encrypted_73a17727440f_iv
+  -in token_file.rds.enc -out tests/testthat/token_file.rds -d
