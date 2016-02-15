@@ -19,8 +19,9 @@ is \code{snippet}, see \code{\link{findParts}} or
 \href{https://developers.google.com/youtube/v3/docs/channels/list}{official documentation} 
 for all valid values.}
 
-\item{category.id}{specifies a YouTube guide category, thereby requesting YouTube channels 
-associated with that category. The default value is \code{NULL}.}
+\item{category.id}{Specifies a YouTube guide category, thereby requesting YouTube channels 
+associated with that category. As returned by\code{\link{getGuideCategories}} 
+. The default value is \code{NULL}.}
 
 \item{for.username}{Specifies a YouTube username, thereby requesting the channel associated 
 with that username. The default value is \code{NULL}.}
