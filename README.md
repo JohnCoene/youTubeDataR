@@ -7,20 +7,26 @@ Integrates R and the YouTube Data API.
 
 ### Functions ###
 
-#### OAuth ####
+##### OAuth #####
+
+Authenticate
 
 * `youOAuth`
 
-#### Find-family ####
+##### Find-family #####
+
+Helper functions
 
 * `findParams`
 * `findParts`
 
-#### Search ####
+##### Search #####
+
+Search `channel`, `video`, `playlist` or `any` (set `type`)
 
 * `searchTube`
 
-#### GET-family ####
+##### GET-family #####
 
 * `getActivities`
 * `getcaptions`
@@ -31,7 +37,7 @@ Integrates R and the YouTube Data API.
 * `getCategories`
 * `getLanguages`
 
-### Example ###
+#### Example ####
 
 ```
 # Authenticate
