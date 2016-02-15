@@ -1,8 +1,14 @@
-language: R
+language: r
+
 r_packages:
   - httr
   - jsonlite
   - plyr
   - covr
+
 after_success:
   - Rscript -e 'library(covr); codecov()'
+
+sudo: required
+
+env: _R_CHECK_CRAN_INCOMING_=FALSE
