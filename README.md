@@ -31,7 +31,7 @@ Integrates R and the YouTube Data API.
 * `getCategories`
 * `getLanguages`
 
-### Examples ###
+### Example ###
 
 ```
 # Authenticate
@@ -59,6 +59,6 @@ my.videos <- getVideos(TK)
 
 `devtools::install_github("SocialFunction/youTubeDataR")`
 
-### Contributors ###
+### Documentation & Manual ###
 
-John Coene <jcoenep@hotmail.com>
+WIP
