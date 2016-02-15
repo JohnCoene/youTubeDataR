@@ -3,4 +3,4 @@
 .RData
 .httr-oauth
 youTubeDataR.Rproj
-tests/testthat/token_file.rds
+tests/testthat/token.R
