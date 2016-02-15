@@ -16,7 +16,15 @@ test_that("getActivities and getChannelSections getCommentThreads", {
   expect_error(getActivities(TK))
   
   # get activities
-  act = getActivities(TK, channel.id = revo)
+  act = getActivities(TK, channel.id = revo, 
+                      published.before = as.Date("2016-01-01"))
+  
+  # expect 50 results
+  expect_equal(nrow(act), 50)
+  
+  act = getActivities(TK, channel.id = revo, 
+                      published.before = as.Date("2016-01-01"),
+                      region.code = "BE", verbose = TRUE)
   
   # expect 50 results
   expect_equal(nrow(act), 50)
@@ -25,7 +33,10 @@ test_that("getActivities and getChannelSections getCommentThreads", {
   expect_is(act, "data.frame")
   
   # getChannelsSections
-  sect = getChannelSections(TK, channel.id = revo)
+  sect = getChannelSections(TK, channel.id = revo, verbose = T)
+  
+  # channel sections error i.e.: i do not have a channel
+  expect_error(getChannelSections(TK, mine = T, verbose = T))
   
   # expect 1
   expect_equal(nrow(sect), 1)
@@ -97,11 +108,17 @@ test_that("getRegions and getLanguages", {
   # error
   expect_error(getRegions())
   
-  # hl
+  # default
   reg = getRegions(TK)
   
   # test
   expect_equal(nrow(reg), 89)
+  
+  # hl
+  km = getRegions(TK, hl = "km", verbose = T)
+  
+  # test
+  expect_equal(nrow(km), 89)
   
   # grep
   be = reg[grep("BE", reg$snippet.gl),]
