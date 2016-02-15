@@ -31,6 +31,30 @@ Integrates R and the YouTube Data API.
 * `getCategories`
 * `getLanguages`
 
+### Examples ###
+
+```
+# Authenticate
+TK <- youOauth(client.id = "something.apps.googleusercontent.com",
+               client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX")
+               
+# search channels about R tutorials
+search <- searchTube(TK, query = "R tutorial", type = "channel")
+  
+# get REvolutionAnalytics channel
+revo <- search[grep("REvolutionAnalytics", search$snippet.channelTitle),
+                    "id.channelId"]
+  
+# get activities of REvolutionAnalytics channel
+revo.act <- getActivities(TK, channel.id = revo)
+
+# get REvolutionAnalytics channel sections
+revo.sect <- getChannelSections(TK, channel.id = revo)
+
+# get my feed
+my.videos <- getVideos(TK)
+```
+
 ### Install ###
 
 `devtools::install_github("SocialFunction/youTubeDataR")`
