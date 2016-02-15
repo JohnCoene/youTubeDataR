@@ -1,0 +1,5 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+.travis.yml
+tests/testthat/token_file.rds.enc
+^\.httr-oauth$
