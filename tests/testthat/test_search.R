@@ -1,8 +1,9 @@
 library(youTubeDataR)
 
 test_that("test searchTube return structure", {
+  
   # load token
-  load("token_file")
+  TK = readRDS("token_file.rds")
   
   # search class
   s = searchTube(token = TK, query = "cats")
