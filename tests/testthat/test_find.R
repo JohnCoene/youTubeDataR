@@ -1,6 +1,11 @@
 library(youTubeDataR)
 
 test_that("Test findParts return values", {
+  
+  # errors
+  expect_error(findParts())
+  expect_error(findParts(FUN = "channels"))
+  
   # activities
   act.parts = findParts("getActivities")
   expect_equal(act.parts, c("contentDetails", "id", "snippet"))
@@ -12,6 +17,18 @@ test_that("Test findParts return values", {
   # comment threads
   th.parts = findParts("getCommentThreads")
   expect_equal(th.parts, c("id", "replies", "snippet"))
+  
+  # channels
+  expect_equal(findParts("getChannels"), c("auditDetails", "brandingSettings", 
+                                           "contentDetails", 
+                                           "contentOwnerDetails", "id", 
+                                           "invideoPromotion", "localizations",
+                                           "snippet", "statistics", "status",
+                                           "topicDetails"))
+  
+  # channel sections
+  expect_equal(findParts("getChannelSections"), c("contentDetails", "id", 
+                                                  "localizations", "snippet"))
 })
 
 test_that("Test findParams return values", {
