@@ -1,5 +1,9 @@
 language: r
 
+sudo: required
+
+env: _R_CHECK_CRAN_INCOMING_=FALSE
+
 r_packages:
   - httr
   - jsonlite
@@ -9,6 +13,3 @@ r_packages:
 after_success:
   - Rscript -e 'library(covr); codecov()'
 
-sudo: required
-
-env: _R_CHECK_CRAN_INCOMING_=FALSE
