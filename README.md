@@ -22,7 +22,7 @@ Helper functions
 
 ##### Search #####
 
-Search `channel`, `video`, `playlist` or `any` (set `type`)
+Search `channel`, `video`, `playlist` or `any` (see example below)
 
 * `searchTube`
 
