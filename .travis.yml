@@ -1,8 +1,8 @@
 language: R
 r_packages:
-- httr
-- jsonlite
-- plyr
-- covr
+  - httr
+  - jsonlite
+  - plyr
+  - covr
 after_success:
-- Rscript -e 'covr::codecov()'
+  - Rscript -e 'library(covr); codecov()'
