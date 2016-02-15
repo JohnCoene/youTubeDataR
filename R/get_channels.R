@@ -14,8 +14,9 @@
 #' \href{https://developers.google.com/youtube/v3/docs/channels/list}{official documentation} 
 #' for all valid values.
 #' @param category.id 
-#' specifies a YouTube guide category, thereby requesting YouTube channels 
-#' associated with that category. The default value is \code{NULL}.
+#' Specifies a YouTube guide category, thereby requesting YouTube channels 
+#' associated with that category. As returned by\code{\link{getGuideCategories}} 
+#' . The default value is \code{NULL}.
 #' @param for.username 
 #' Specifies a YouTube username, thereby requesting the channel associated 
 #' with that username. The default value is \code{NULL}.
