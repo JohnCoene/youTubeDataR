@@ -18,7 +18,7 @@ is \code{snippet}, see \code{\link{findParts}} for all valid values..}
 
 \item{channel.id}{Indicates that the API should only return the specified channel's playlists.}
 
-\item{id}{pecifies a comma-separated list of the YouTube playlist ID(s) for the 
+\item{id}{Specifies a comma-separated list of the YouTube playlist ID(s) for the 
 resource(s) that are being retrieved.}
 
 \item{mine}{This parameter can only be used in a properly authorized request. 

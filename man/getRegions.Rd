@@ -10,7 +10,7 @@ getRegions(token, hl = NULL, verbose = FALSE)
 \item{token}{Your token as returned by \code{\link{youOAuth}}.}
 
 \item{hl}{Specifies the language that should be used for text values in the API 
-response. The default value is \code{en_US}. Optional argument.'}
+response. The default value is \code{en_US}. Optional argument.}
 
 \item{verbose}{If \code{TRUE} prints infromational messages in the console. 
 The default value is \code{FALSE}.}
