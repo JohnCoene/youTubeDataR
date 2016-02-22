@@ -28,6 +28,8 @@ Search `channel`, `video`, `playlist` or `any` (see example below)
 
 ##### GET-family #####
 
+Get data
+
 * `getActivities`
 * `getcaptions`
 * `getChannels`
