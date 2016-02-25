@@ -132,6 +132,22 @@ test_that("getRegions and getLanguages", {
   expect_equal(nrow(lang), 76)
 })
 
+test_that("getVideos", {
+  
+  # load token
+  TK = readRDS("token_file.rds")
+  
+  # error
+  expect_error(getVideo())
+  expect_error(getVideo("error"))
+  expect_error(getCaptions())
+  expect_error(getCaptions("error"))
+  
+  vids <- getVideos(TK)
+  
+  expect_equal(class(vids), "data.frame")
+})
+
 test_that("test findParts", {
   
   expect_error(findParts())
