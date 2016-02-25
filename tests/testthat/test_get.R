@@ -131,3 +131,33 @@ test_that("getRegions and getLanguages", {
   
   expect_equal(nrow(lang), 76)
 })
+
+test_that("test findParts", {
+  
+  expect_error(findParts())
+  expect_error(findParts("error"))
+  
+  expect_equal(findParts("getActivities"), c("contentDetails", "id", 
+                                             "snippet"))
+  expect_equal(length(findParts("getCaptions")), 2)
+  expect_equal(length(findParts("getChannels")), 11)
+  expect_equal(findParts("getChannelSections"), c("contentDetails", "id",
+                                                  "localizations", "snippet"))
+  expect_equal(findParts("getComments"), c("id", "snippet"))
+  expect_equal(length(findParts("getVideos")), 13)
+})
+
+test_that("test findParams", {
+  
+  expect_error(findParams())
+  expect_error(findParams("error"))
+  
+  expect_equal(length(findParams("order")), 6)
+  expect_equal(findParams("video.dimension"), c("2d", "3d", "any"))
+  expect_equal(findParams("video.caption"), c("any", "closedCaption", "none"))
+  expect_equal(findParams("video.duration"), c("any", "long", "medium", 
+                                               "short"))
+  expect_equal(findParams("video.definition"), c("any", "high", "standard"))
+  expect_equal(findParams("video.embeddable"), c("any", "true"))
+  expect_equal(findParams("video.syndicated"), c("any", "true"))
+})
