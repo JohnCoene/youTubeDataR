@@ -31,12 +31,12 @@ Search `channel`, `video`, `playlist` or `any` (see example below)
 Get data
 
 * `getActivities`
-* `getcaptions`
+* `getCaptions`
 * `getChannels`
 * `getChannelSections`
 * `getComments`
 * `getCommentThreads`
-* `getCategories`
+* `getGuideCategories`
 * `getLanguages`
 
 #### Example ####
