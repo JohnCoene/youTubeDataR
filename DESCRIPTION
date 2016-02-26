@@ -3,8 +3,9 @@ Type: Package
 Title: Integrates R and the YouTube Data API
 Version: 0.1
 Date: 2015-12-14
-Author: John Coene
-Maintainer: John Coene <jcoenep@hotmail.com>
+Authors@R:
+    person("John", "Coene", email = "jcoenep@gmail.com", 
+    role = c("aut", "cre"))
 Description: Integrates R and the YouTube Data API to allow fetching data from Youtube.
 License: GPL (>=3) + file LICENSE
 LazyData: TRUE

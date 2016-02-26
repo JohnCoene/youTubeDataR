@@ -148,6 +148,32 @@ test_that("getVideos", {
   expect_equal(class(vids), "data.frame")
 })
 
+test_that("getPlaylistItems", {
+
+  # load token
+  TK = readRDS("token_file.rds")
+  
+  # errors
+  expect_error(getPlaylistItems())
+  expect_error(getPlaylistItems(TK))
+  expect_error(getPlaylistItems(TK, n = 100))
+})
+
+test_that("getSubscriptions", {
+  
+  # load token
+  TK = readRDS("token_file.rds")
+  
+  # search
+  chans <- searchTube(TK, "programming", type = "channel")
+  
+  # invalid credentials
+  expect_error(getSubscriptions())
+  expect_error(getSubscriptions(TK))
+  expect_error(getSubscriptions(TK, channel.id = chans$id.channelId[1]))
+  
+})
+
 test_that("test findParts", {
   
   expect_error(findParts())
