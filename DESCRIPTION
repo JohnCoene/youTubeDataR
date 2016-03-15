@@ -6,8 +6,9 @@ Date: 2015-12-14
 Authors@R:
     person("John", "Coene", email = "jcoenep@gmail.com", 
     role = c("aut", "cre"))
-Description: Integrates R and the YouTube Data API to allow fetching data from Youtube.
-License: GPL (>=3) + file LICENSE
+Description: Integrates R and the YouTube Data API to allow fetching data from 
+    Youtube.
+License: MIT + file LICENSE
 LazyData: TRUE
 URL: https://github.com/SocialFunction/youTubeDataR
 BugReports: https://github.com/SocialFunction/youTubeDataR/issues
