@@ -217,3 +217,16 @@ test_that("test findParams", {
   expect_equal(findParams("text.format"), c("html", "plainText"))
   expect_equal(findParams("moderation.status")[2], "likelySpam")
 })
+
+test_that("videoCategories", {
+  
+  # load token
+  TK = readRDS("token_file.rds")
+  
+  cats <- getVideoCategories(TK, region.code = "US")
+  
+  expect_less_than(nrow(cats), 50)
+  
+  expect_error(getVideoCategories())
+  expect_error(getVideoCategories(TK))
+})
