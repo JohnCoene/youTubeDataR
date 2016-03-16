@@ -72,4 +72,4 @@ my.videos <- getVideos(TK)
 
 ### Documentation & Manual ###
 
-WIP
+[Manual](http://johncoene.github.io/projects/docs/youTubeDataR.pdf)
