@@ -24,7 +24,7 @@ test_that("getActivities and getChannelSections getCommentThreads", {
   
   act = getActivities(TK, channel.id = revo, 
                       published.before = as.Date("2016-01-01"),
-                      region.code = "BE", verbose = TRUE)
+                      region.code = "BE", verbose = FALSE)
   
   # expect 50 results
   expect_equal(nrow(act), 50)
@@ -33,16 +33,16 @@ test_that("getActivities and getChannelSections getCommentThreads", {
   expect_is(act, "data.frame")
   
   # getChannelsSections
-  sect = getChannelSections(TK, channel.id = revo, verbose = T)
-  
-  # channel sections error i.e.: i do not have a channel
-  expect_error(getChannelSections(TK, mine = T, verbose = T))
-  
-  # expect 1
-  expect_equal(nrow(sect), 1)
-  expect_equal(sect$etag, 
-               as.factor('"DsOZ7qVJA4mxdTxZeNzis6uE6ck/rsCZsxGcRtIClh2WI6fKe08MZPM"'))
+  sect = getChannelSections(TK, channel.id = revo, verbose = FALSE)
   expect_is(sect, "data.frame")
+  expect_equal(nrow(sect), 1)
+  
+  # My channel sections 
+  my_sect <- getChannelSections(TK, mine = TRUE)
+  expect_equal(nrow(my_sect), 1)
+  expect_equal(my_sect$etag, 
+               as.factor('"q5k97EMVGxODeKcDgp8gnMu79wM/PUTS8q9_RlmfohTWYMOO8bpJgPM"'))
+  
   
   # getCommentThreads
   expect_error(getCommentThreads(TK, channel.id = revo))
@@ -187,6 +187,12 @@ test_that("test findParts", {
                                                   "localizations", "snippet"))
   expect_equal(findParts("getComments"), c("id", "snippet"))
   expect_equal(length(findParts("getVideos")), 13)
+  expect_equal(findParts("getCommentThreads"), c("id", "replies", "snippet"))
+  expect_equal(length(findParts("getPlaylistItems")), 4)
+  expect_equal(length(findParts("getPlaylists")), 6)
+  expect_equal(findParts("getSubscriptions"), c("snippet", "contentDetails", 
+                                                "id", "subscriberSnippet"))
+  expect_equal(length(findParts("getVideos")), 13)
 })
 
 test_that("test findParams", {
@@ -202,4 +208,12 @@ test_that("test findParams", {
   expect_equal(findParams("video.definition"), c("any", "high", "standard"))
   expect_equal(findParams("video.embeddable"), c("any", "true"))
   expect_equal(findParams("video.syndicated"), c("any", "true"))
+  expect_equal(findParams("video.license"), c("any", "creative", "youtube"))
+  expect_equal(findParams("video.type"), c("any", "episode", "movie"))
+  expect_equal(findParams("safe.search"), c("moderate", "none", "strict"))
+  expect_equal(findParams("event.type")[3], "upcoming")
+  expect_equal(length(findParams("channel.type")), 2)
+  expect_equal(findParams("type")[2], "channel")
+  expect_equal(findParams("text.format"), c("html", "plainText"))
+  expect_equal(findParams("moderation.status")[2], "likelySpam")
 })
