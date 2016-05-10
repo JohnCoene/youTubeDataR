@@ -40,9 +40,6 @@ test_that("getActivities and getChannelSections getCommentThreads", {
   # My channel sections 
   my_sect <- getChannelSections(TK, mine = TRUE)
   expect_equal(nrow(my_sect), 1)
-  expect_equal(my_sect$etag, 
-               as.factor('"q5k97EMVGxODeKcDgp8gnMu79wM/PUTS8q9_RlmfohTWYMOO8bpJgPM"'))
-  
   
   # getCommentThreads
   expect_error(getCommentThreads(TK, channel.id = revo))
@@ -170,7 +167,8 @@ test_that("getSubscriptions", {
   # invalid credentials
   expect_error(getSubscriptions())
   expect_error(getSubscriptions(TK))
-  expect_error(getSubscriptions(TK, channel.id = chans$id.channelId[1]))
+  subs <- getSubscriptions(TK, channel.id = chans$id.channelId[1])
+  expect_equal(nrow(subs), 2)
   
 })
 
@@ -225,7 +223,7 @@ test_that("videoCategories", {
   
   cats <- getVideoCategories(TK, region.code = "US")
   
-  expect_less_than(nrow(cats), 50)
+  expect_lt(nrow(cats), 50)
   
   expect_error(getVideoCategories())
   expect_error(getVideoCategories(TK))
