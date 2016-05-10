@@ -16,6 +16,14 @@ library(httpuv)
 devtools::install_github("JohnCoene/youTubeDataR")
 ```
 
+## OAuth
+
+Create OAuth client ID > Web application at [https://console.developers.google.com](https://console.developers.google.com) and specify your `httr::oauth_callback()` as "Authorized redirect URIs" (generally `http://localhost:1410`).
+
+```R
+token <- youOAuth("something.apps.googleusercontent.com", "XXxxXxxXXxxXxxXX")
+```
+
 ### Functions ###
 
 ##### OAuth #####
