@@ -22,8 +22,8 @@ Get your credentials
 
 1. Go to [https://console.developers.google.com](https://console.developers.google.com)
 2. Click "Credentials" in the sidebar
-3. Click "Create credetnials"
-4. In the dopdown menu select "OAuth client ID"
+3. Click "Create credentials"
+4. In the dropdown menu select "OAuth client ID"
 5. On the next page select "Web application"
 6. Fill in your "Authorized redirect URIs" as returned by `httr::oauth_callback()` as "Authorized redirect URIs" (generally `http://localhost:1410`).
 
