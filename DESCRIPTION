@@ -12,9 +12,10 @@ License: MIT + file LICENSE
 LazyData: TRUE
 URL: https://github.com/SocialFunction/youTubeDataR
 BugReports: https://github.com/SocialFunction/youTubeDataR/issues
-Imports: 
+Imports:
     httr,
     jsonlite,
     plyr
 RoxygenNote: 5.0.1
-Suggests: testthat
+Suggests: testthat,
+    covr
