@@ -12,9 +12,7 @@ Integrates R and the YouTube Data API.
 ## Install
 
 ```R
-# install httpuv to avoid out-of-band authentication
-install.packages("httpuv")
-library(httpuv)
+install.packages("httpuv") # install httpuv to avoid out-of-band authentication
 devtools::install_github("JohnCoene/youTubeDataR")
 ```
 
@@ -84,10 +82,6 @@ revo.sect <- getChannelSections(TK, channel.id = revo)
 # get my feed
 my.videos <- getVideos(TK)
 ```
-
-### Install ###
-
-`devtools::install_github("SocialFunction/youTubeDataR")`
 
 ### Documentation & Manual ###
 
