@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/JohnCoene/youTubeDataR.svg?branch=master)](https://travis-ci.org/JohnCoene/youTubeDataR)
 [![Build status](https://ci.appveyor.com/api/projects/status/w6juofhgxemvjtva/branch/master?svg=true)](https://ci.appveyor.com/project/JohnCoene/youtubedatar/branch/master)
 [![codecov.io](https://codecov.io/github/JohnCoene/youTubeDataR/coverage.svg?branch=master)](https://codecov.io/github/JohnCoene/youTubeDataR?branch=master)
-[![Coverage Status](https://img.shields.io/coveralls/SocialFunction/youTubeDataR.svg)](https://coveralls.io/r/SocialFunction/youTubeDataR?branch=master)
+[![Coverage Status](https://img.shields.io/coveralls/SocialFunction/youTubeDataR.svg)](https://coveralls.io/r/JohnCoene/youTubeDataR?branch=master)
 
 # youTubeDataR
 
