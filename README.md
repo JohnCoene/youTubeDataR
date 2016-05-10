@@ -7,6 +7,15 @@
 
 Integrates R and the YouTube Data API.
 
+## Install
+
+```R
+# install httpuv to avoid out-of-band authentication
+install.packages("httpuv")
+library(httpuv)
+devtools::install_github("JohnCoene/youTubeDataR")
+```
+
 ### Functions ###
 
 ##### OAuth #####
