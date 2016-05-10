@@ -3,8 +3,9 @@
 [![codecov.io](https://codecov.io/github/JohnCoene/youTubeDataR/coverage.svg?branch=master)](https://codecov.io/github/JohnCoene/youTubeDataR?branch=master)
 [![Coverage Status](https://img.shields.io/coveralls/SocialFunction/youTubeDataR.svg)](https://coveralls.io/r/SocialFunction/youTubeDataR?branch=master)
 
-
 # youTubeDataR
+
+![img](http://johncoene.github.io/projects/img/youTubeDataR.JPG)
 
 Integrates R and the YouTube Data API.
 
