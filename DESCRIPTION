@@ -1,7 +1,7 @@
 Package: youTubeDataR
 Type: Package
 Title: Integrates R and the YouTube Data API
-Version: 0.1
+Version: 0.2
 Date: 2015-12-14
 Authors@R:
     person("John", "Coene", email = "jcoenep@gmail.com", 

@@ -9,8 +9,8 @@ test_that("getActivities and getChannelSections getCommentThreads", {
   search = searchTube(TK, query = "R tutorial", type = "channel")
   
   # get REvolutionAnalytics
-  revo = search[grep("REvolutionAnalytics", search$snippet.channelTitle), 
-                "id.channelId"]
+  revo = search[grep("R Tutorials", search$channelTitle), 
+                "id.channelId"][1]
   
   # test error if missing required args
   expect_error(getActivities(TK))
@@ -20,14 +20,14 @@ test_that("getActivities and getChannelSections getCommentThreads", {
                       published.before = as.Date("2016-01-01"))
   
   # expect 50 results
-  expect_equal(nrow(act), 50)
+  expect_equal(nrow(act), 10)
   
   act = getActivities(TK, channel.id = revo, 
                       published.before = as.Date("2016-01-01"),
                       region.code = "BE", verbose = FALSE)
   
   # expect 50 results
-  expect_equal(nrow(act), 50)
+  expect_equal(nrow(act), 10)
   
   # expect data.frame
   expect_is(act, "data.frame")
@@ -109,16 +109,16 @@ test_that("getRegions and getLanguages", {
   reg = getRegions(TK)
   
   # test
-  expect_equal(nrow(reg), 89)
+  expect_equal(nrow(reg), 90)
   
   # hl
   km = getRegions(TK, hl = "km", verbose = T)
   
   # test
-  expect_equal(nrow(km), 89)
+  expect_equal(nrow(km), 90)
   
   # grep
-  be = reg[grep("BE", reg$snippet.gl),]
+  be = reg[grep("BE", reg$gl),]
   
   # test
   expect_equal(nrow(be), 1)
@@ -167,8 +167,7 @@ test_that("getSubscriptions", {
   # invalid credentials
   expect_error(getSubscriptions())
   expect_error(getSubscriptions(TK))
-  subs <- getSubscriptions(TK, channel.id = chans$id.channelId[1])
-  expect_equal(nrow(subs), 2)
+  expect_error(getSubscriptions(TK, channel.id = chans$id.channelId[1]))
   
 })
 

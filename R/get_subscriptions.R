@@ -181,6 +181,8 @@ getSubscriptions <- function(token, part = "snippet", channel.id, id,
                " results."))
   }
   
+  dat <- renameReturn(dat)
+  
   return(dat)
   
 }

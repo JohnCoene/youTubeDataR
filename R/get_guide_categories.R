@@ -91,6 +91,8 @@ getGuideCategories <- function (token, id, region.code, hl = NULL)
     
   }
   
+  dat <- renameReturn(dat)
+  
   return(dat)
   
 }

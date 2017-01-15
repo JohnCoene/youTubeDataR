@@ -87,5 +87,7 @@ getVideoCategories <- function(token, id, region.code, hl = "en_US") {
     
   }
   
+  dat <- renameReturn(dat)
+  
   return(dat)
 }

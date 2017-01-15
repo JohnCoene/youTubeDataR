@@ -203,6 +203,8 @@ getChannels <- function(token, n = 50, part = "snippet", category.id,
                " results."))
   }
   
+  dat <- renameReturn(dat)
+  
   return(dat)
   
 }

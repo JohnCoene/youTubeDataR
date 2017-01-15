@@ -86,8 +86,8 @@ getActivities <- function(token, channel.id, mine = FALSE, home = FALSE,
   if(is.null(channel.id) && mine == FALSE && home == FALSE) {
     stop("must provide channel.id or mine or home")
   } else {
-    
-   c <- mine + home + length(channel.id)
+  
+    c <- mine + home + length(channel.id)
    
    if(c > 1) {
      
@@ -178,6 +178,8 @@ getActivities <- function(token, channel.id, mine = FALSE, home = FALSE,
     cat(paste0(n, " results queried, API returned ", nrow(dat),
                " results."))
   }
+  
+  dat <- renameReturn(dat)
   
   return(dat)
   

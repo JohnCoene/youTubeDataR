@@ -140,6 +140,8 @@ getChannelSections <- function(token, channel.id, part = "snippet",
                " results."))
   }
   
+  dat <- renameReturn(dat)
+  
   return(dat)
   
 }

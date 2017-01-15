@@ -202,3 +202,9 @@ testPart <- function(FUN, values) {
   }
 
 }
+
+# rename returned results
+renameReturn <- function(df){
+  names(df) <- gsub("^snippet.", "", names(df))
+  return(df)
+}

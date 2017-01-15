@@ -61,6 +61,8 @@ getLanguages <- function(token, hl = NULL, verbose = FALSE) {
     cat(paste0("API returned ", nrow(dat), " results."))
   }
   
+  dat <- renameReturn(dat)
+  
   return(dat)
   
 }

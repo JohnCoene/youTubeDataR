@@ -31,6 +31,11 @@ Get your credentials
 token <- youOAuth("something.apps.googleusercontent.com", "XXxxXxxXXxxXxxXX")
 ```
 
+### Versions ###
+
+* Some variable names were changed in `v0.2` please use `v0.1` for backward compatibility
+  - `snippet.` prefix removed in `v0.2`
+
 ### Functions ###
 
 ##### OAuth #####
@@ -77,7 +82,7 @@ TK <- youOauth(client.id = "something.apps.googleusercontent.com",
 search <- searchTube(TK, query = "R tutorial", type = "channel")
   
 # get REvolutionAnalytics channel
-revo <- search[grep("REvolutionAnalytics", search$snippet.channelTitle),
+revo <- search[grep("REvolutionAnalytics", search$channelTitle),
                     "id.channelId"]
   
 # get activities of REvolutionAnalytics channel

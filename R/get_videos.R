@@ -173,6 +173,8 @@ getVideos <- function(token, part = "snippet", n = 50 , chart = "mostPopular",
                " results."))
   }
   
+  dat <- renameReturn(dat)
+  
   return(dat)
   
 }

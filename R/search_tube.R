@@ -332,6 +332,8 @@ searchTube <- function(token, query, n = 50, type = "any", order = "relevance",
                " results."))
   }
   
+  dat <- renameReturn(dat)
+  
   return(dat)
   
 }
