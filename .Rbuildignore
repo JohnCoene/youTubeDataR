@@ -4,3 +4,4 @@
 tests/testthat/token_file.rds.enc
 ^\.httr-oauth$
 appveyor.yml
+^appveyor\.yml$
