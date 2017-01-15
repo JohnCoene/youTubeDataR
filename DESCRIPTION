@@ -15,7 +15,9 @@ BugReports: https://github.com/SocialFunction/youTubeDataR/issues
 Imports:
     httr,
     jsonlite,
-    plyr
+    plyr,
+    methods,
+    stats
 RoxygenNote: 5.0.1
 Suggests: testthat,
     covr

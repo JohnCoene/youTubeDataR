@@ -203,7 +203,7 @@ clean.cats <- searchVideos(token, query = "clean cats", safe.search = safety,
 video.cat <- getVideoCategories(token, region.code = "US")
 
 # filter pet-related video categories
-video.cat <- video.cat[grep("Pets", video.cat$snippet.title),] 
+video.cat <- video.cat[grep("Pets", video.cat$title),] 
 
 # fetch by category
 pets <- searchTube(token, query = "cats", video.category.id = video.cat[1])

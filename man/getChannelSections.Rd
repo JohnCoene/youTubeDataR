@@ -65,8 +65,7 @@ token <- youOAuth(client.id = "something.apps.googleusercontent.com",
 search <- searchTube(token, query = "cats", type = "channel")
 
 # get channel sections
-sections <- getChannelSections(token, 
-                               channel.id = search$snippet.channelId [1])
+sections <- getChannelSections(token, channel.id = search$channelId [1])
 }
 
 }

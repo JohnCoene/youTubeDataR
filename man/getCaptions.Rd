@@ -56,7 +56,7 @@ search <- searchTube(token, query = "cats", type = "video")
 
 # random channel id
 set.seed(19880525)
-vid <- sample(search$snippet.id.videoId, 1)
+vid <- sample(search$videoId, 1)
 
 # fetch data
 act <- getActivities(token, video.id = vid)

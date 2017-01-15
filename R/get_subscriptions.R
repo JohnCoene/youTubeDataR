@@ -82,7 +82,7 @@
 #' 
 #' # pick random channel
 #' set.seed(19880525)
-#' chan <- sample(search$snippet.id.channelId, 1)
+#' chan <- sample(search$channelId, 1)
 #' 
 #' # fetch subs
 #' subs <- getSubscriptions(token, channel.id = chan)
