@@ -20,9 +20,9 @@ devtools::install_github("JohnCoene/youTubeDataR")
 
 Get your credentials
 
-1. Go to [https://console.developers.google.com](https://console.developers.google.com)
+1. Sign in at [https://console.developers.google.com](https://console.developers.google.com)
 2. Click "Credentials" in the sidebar
-3. Click "Create credentials"
+3. Hit "Create credentials"
 4. In the dropdown menu select "OAuth client ID"
 5. On the next page select "Web application"
 6. Fill in your "Authorized redirect URIs" as returned by `httr::oauth_callback()` as "Authorized redirect URIs" (generally `http://localhost:1410`).
@@ -61,14 +61,20 @@ Search `channel`, `video`, `playlist` or `any` (see example below)
 
 Get data
 
+* `getVideos`
 * `getActivities`
 * `getCaptions`
 * `getChannels`
 * `getChannelSections`
 * `getComments`
 * `getCommentThreads`
+* `getVideoCateogries`
 * `getGuideCategories`
 * `getLanguages`
+* `getRegions`
+* `getSubscriptions`
+* `getPlaylists`
+* `getPlaylistItems`
 
 #### Example ####
 
@@ -77,19 +83,21 @@ Get data
 TK <- youOauth(client.id = "something.apps.googleusercontent.com",
                client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX", 
                scope = "force-ssl")
+
+# search channels, videos and playlists about R tutorials
+any <- searchTube(TK, query = "R tutorial", type = "any")
                
 # search channels about R tutorials
 search <- searchTube(TK, query = "R tutorial", type = "channel")
   
-# get REvolutionAnalytics channel
-revo <- search[grep("REvolutionAnalytics", search$channelTitle),
-                    "id.channelId"]
+# get random channel out of search results
+chan <- sample(search$id.channelId, 1)
   
-# get activities of REvolutionAnalytics channel
-revo.act <- getActivities(TK, channel.id = revo)
+# get activities of sampled channel
+chan.act <- getActivities(TK, channel.id = chan)
 
-# get REvolutionAnalytics channel sections
-revo.sect <- getChannelSections(TK, channel.id = revo)
+# get sampled channel sections
+chan.sect <- getChannelSections(TK, channel.id = chan)
 
 # get my feed
 my.videos <- getVideos(TK)
