@@ -35,6 +35,7 @@ token <- youOAuth("something.apps.googleusercontent.com", "XXxxXxxXXxxXxxXX")
 
 * Some variable names were changed in `v0.2` please use `v0.1` for backward compatibility
   - `snippet.` prefix removed in `v0.2`
+  - code cleanup
 
 ### Functions ###
 
@@ -106,3 +107,7 @@ my.videos <- getVideos(TK)
 ### Documentation & Manual ###
 
 [Manual](http://johncoene.github.io/projects/docs/youTubeDataR.html)
+
+-----------------------------------
+
+[Project vault](http://johncoene.github.io/projects/)
