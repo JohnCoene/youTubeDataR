@@ -9,8 +9,7 @@ test_that("getActivities and getChannelSections getCommentThreads", {
   search = searchTube(TK, query = "R tutorial", type = "channel")
   
   # get REvolutionAnalytics
-  revo = search[grep("R Tutorials", search$channelTitle), 
-                "id.channelId"][1]
+  revo = "UCqIL67lW4Kmsd75h6h7pNog"
   
   # test error if missing required args
   expect_error(getActivities(TK))
@@ -38,8 +37,7 @@ test_that("getActivities and getChannelSections getCommentThreads", {
   expect_equal(nrow(sect), 1)
   
   # My channel sections 
-  my_sect <- getChannelSections(TK, mine = TRUE)
-  expect_equal(nrow(my_sect), 1)
+  expect_error(getChannelSections(TK, mine = TRUE))
   
   # getCommentThreads
   expect_error(getCommentThreads(TK, channel.id = revo))
