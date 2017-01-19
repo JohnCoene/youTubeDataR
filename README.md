@@ -25,7 +25,7 @@ Get your credentials
 3. Hit "Create credentials"
 4. In the dropdown menu select "OAuth client ID"
 5. On the next page select "Web application"
-6. Fill in your "Authorized redirect URIs" as returned by `httr::oauth_callback()` as "Authorized redirect URIs" (generally `http://localhost:1410`).
+6. Fill in your "Authorized redirect URIs" as returned by `httr::oauth_callback()` as "Authorized redirect URIs" (generally `http://localhost:1410/`).
 
 ```R
 token <- youOAuth("something.apps.googleusercontent.com", "XXxxXxxXXxxXxxXX")
