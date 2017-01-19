@@ -149,7 +149,7 @@ search query term.}
 
 \item{topic.id}{Indicates that the API response should only contain resources associated 
 with the specified topic. The value identifies a 
-\href{https://developers.google.com/freebase/v1/topic-overview}{Freebase topic ID}.}
+\href{https://developers.google.com/youtube/v3/docs/search/list}{Freebase topic ID}.}
 
 \item{verbose}{If \code{TRUE} prints infromational messages in the console. 
 The default value is \code{FALSE}.}
