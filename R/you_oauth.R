@@ -45,6 +45,10 @@
 #' @export
 youOAuth <- function(client.id, client.secret, scope = NULL) {
   
+  if (missing(client.id) || missing(client.secret)) {
+    stop("Missing client id or secret", call. = FALSE)
+  }
+  
   youtube <- httr::oauth_endpoints("google")	
   
   # build app
