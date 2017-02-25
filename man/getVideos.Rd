@@ -4,10 +4,9 @@
 \alias{getVideos}
 \title{getVideos}
 \usage{
-getVideos(token, part = "snippet", n = 50, chart = "mostPopular", id,
-  my.rating, hl = NULL, max.results = 50,
-  on.behalf.of.content.owner = NULL, region.code = NULL,
-  video.category.id = NULL, verbose = FALSE)
+getVideos(token, part = "snippet", n = 50, chart, id, my.rating,
+  hl = NULL, max.results = 50, on.behalf.of.content.owner = NULL,
+  region.code = NULL, video.category.id = NULL, verbose = FALSE)
 }
 \arguments{
 \item{token}{Your token as returned by \code{\link{youOAuth}}.}
@@ -19,8 +18,7 @@ is \code{snippet}, see \code{\link{findParts}} for all valid values.}
 \item{n}{Number of results to fecth. The default value is \code{50}.}
 
 \item{chart}{The chart parameter identifies the chart that you want to retrieve. Only 
-valid value is \code{mostPopular} or \code{NULL}. 
-The default value if \code{mostPopular}.}
+valid value is \code{mostPopular} or \code{NULL}.}
 
 \item{id}{Specifies a comma-separated list of the YouTube video ID(s) for the 
 resource(s) that are being retrieved. In a video resource, the id property 

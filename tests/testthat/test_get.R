@@ -37,7 +37,7 @@ test_that("getActivities and getChannelSections getCommentThreads", {
   expect_equal(nrow(sect), 1)
   
   # My channel sections 
-  expect_error(getChannelSections(TK, mine = TRUE))
+  x <- getChannelSections(TK, mine = TRUE)
   
   # getCommentThreads
   expect_error(getCommentThreads(TK, channel.id = revo))
@@ -139,7 +139,9 @@ test_that("getVideos and getCaptions", {
   expect_error(getCaptions("error"))
   expect_error(getCaptions(TK))
   
-  vids <- getVideos(TK)
+  expect_warning(getVideos(TK))
+  
+  vids <- getVideos(TK, chart = "mostPopular")
   
   expect_equal(class(vids), "data.frame")
   

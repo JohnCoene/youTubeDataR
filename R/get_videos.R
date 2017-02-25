@@ -16,8 +16,7 @@
 #' The default value is \code{50}.
 #' @param chart 
 #' The chart parameter identifies the chart that you want to retrieve. Only 
-#' valid value is \code{mostPopular} or \code{NULL}. 
-#' The default value if \code{mostPopular}.
+#' valid value is \code{mostPopular} or \code{NULL}.
 #' @param id 
 #' Specifies a comma-separated list of the YouTube video ID(s) for the 
 #' resource(s) that are being retrieved. In a video resource, the id property 
@@ -71,7 +70,7 @@
 #' @author John Coene \email{jcoenep@@hotmail.com}
 #' 
 #' @export
-getVideos <- function(token, part = "snippet", n = 50 , chart = "mostPopular",
+getVideos <- function(token, part = "snippet", n = 50 , chart,
                       id, my.rating, hl = NULL, max.results = 50, 
                       on.behalf.of.content.owner = NULL, region.code = NULL,
                       video.category.id = NULL, verbose = FALSE) {
@@ -82,8 +81,9 @@ getVideos <- function(token, part = "snippet", n = 50 , chart = "mostPopular",
   if(missing(my.rating)) my.rating <- NULL
   
   # check required parameters
-  if(!length(chart) && !length(id) && !length(my.rating)) {
-    stop("must specify either chart, id or my.rating")
+  if(missing(chart) && !length(id) && !length(my.rating)) {
+    warning("must specify either chart, id or my.rating: defaulting to chart = 'mostPopular'")
+    chart <- "mostPopular"
   } else {
     
     c <- length(chart) + length(id) + length(my.rating)
