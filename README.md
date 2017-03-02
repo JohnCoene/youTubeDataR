@@ -5,9 +5,9 @@
 
 # youTubeDataR
 
-![img](http://johncoene.github.io/projects/img/youTubeDataR.JPG)
+Integrates R and the [YouTube Data API](https://developers.google.com/youtube/v3/).
 
-Integrates R and the YouTube Data API.
+See [site](http://john-coene.com/packages/youTubeDataR/) for docs and details.
 
 ## Install
 
@@ -103,10 +103,6 @@ chan.sect <- getChannelSections(TK, channel.id = chan)
 # get my feed
 my.videos <- getVideos(TK)
 ```
-
-### Documentation & Manual ###
-
-[Manual](http://johncoene.github.io/projects/docs/youTubeDataR.html)
 
 -----------------------------------
 
