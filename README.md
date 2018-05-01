@@ -77,33 +77,4 @@ Get data
 * `getPlaylists`
 * `getPlaylistItems`
 
-#### Example ####
-
-```
-# Authenticate
-TK <- youOauth(client.id = "something.apps.googleusercontent.com",
-               client.secret = "XxxXX1XxXxXxxx1xxx1xxXXX", 
-               scope = "force-ssl")
-
-# search channels, videos and playlists about R tutorials
-any <- searchTube(TK, query = "R tutorial", type = "any")
-               
-# search channels about R tutorials
-search <- searchTube(TK, query = "R tutorial", type = "channel")
-  
-# get random channel out of search results
-chan <- sample(search$id.channelId, 1)
-  
-# get activities of sampled channel
-chan.act <- getActivities(TK, channel.id = chan)
-
-# get sampled channel sections
-chan.sect <- getChannelSections(TK, channel.id = chan)
-
-# get my feed
-my.videos <- getVideos(TK)
-```
-
------------------------------------
-
-[Project vault](http://johncoene.github.io/projects/)
+#### See [this post](http://john-coene.com/post/youtube/) for examples ####
