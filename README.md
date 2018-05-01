@@ -12,7 +12,6 @@ See [site](http://john-coene.com/packages/youTubeDataR/) for docs and details.
 ## Install
 
 ```R
-install.packages("httpuv") # install httpuv to avoid out-of-band authentication
 devtools::install_github("JohnCoene/youTubeDataR")
 ```
 
